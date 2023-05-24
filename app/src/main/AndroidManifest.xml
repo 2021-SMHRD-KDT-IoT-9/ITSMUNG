@@ -13,8 +13,20 @@
         android:theme="@style/Theme.ItsmungApplication"
         tools:targetApi="31">
         <activity
+            android:name=".DogJoinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorJoinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserJoinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserLoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

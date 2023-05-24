@@ -13,7 +13,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9" />
 
-    <!--네비게이션 바 클릭시 색 변경-->
+    <!--네비게이션 바 -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv"
         android:layout_width="0dp"
@@ -29,6 +29,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:layout_constraintVertical_bias="0.0"
         app:menu="@menu/menu_item" />
+
     <FrameLayout
         android:id="@+id/fl"
         android:layout_width="0dp"
