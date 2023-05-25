@@ -13,13 +13,26 @@
         android:theme="@style/Theme.ItsmungApplication"
         tools:targetApi="31">
         <activity
-            android:name=".DogJoinActivity"
+            android:name=".DoctorListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PayActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DogPeaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DogStoolActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".DogJoinActivity"
+            android:exported="true" />
         <activity
             android:name=".DoctorJoinActivity"
             android:exported="false" />
@@ -40,9 +53,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
     </application>
 
 </manifest>
-

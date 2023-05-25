@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     tools:context=".DogJoinActivity">
 
@@ -99,7 +99,7 @@
     <EditText
         android:id="@+id/editTextText5"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:fontFamily="@font/im_hyemin_bold"
@@ -139,7 +139,7 @@
         android:id="@+id/editTextText7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="20dp"
         android:ems="10"
         android:fontFamily="@font/im_hyemin_bold"
         android:hint="예) 3.23 "
@@ -160,17 +160,6 @@
         app:layout_constraintStart_toEndOf="@+id/editTextText7"
         app:layout_constraintTop_toBottomOf="@+id/editTextText6" />
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="성별"
-        android:textColor="@color/zete"
-        app:layout_constraintStart_toStartOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
     <RadioButton
         android:id="@+id/radioButton"
         android:layout_width="wrap_content"
@@ -181,25 +170,24 @@
         android:text="남아 ♂"
         android:textColor="@color/zete"
         app:layout_constraintStart_toEndOf="@+id/textView20"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextText8" />
 
-    <RadioButton
-        android:id="@+id/radioButton3"
+    <TextView
+        android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/im_hyemin_bold"
-        android:text="여아 ♀"
+        android:text="성별"
         android:textColor="@color/zete"
-        app:layout_constraintEnd_toStartOf="@+id/guideline24"
-        app:layout_constraintStart_toEndOf="@+id/radioButton"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
+        app:layout_constraintStart_toStartOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="45dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="중성화"
         android:textColor="@color/zete"
@@ -210,8 +198,8 @@
         android:id="@+id/radioButton4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="유"
         android:textColor="@color/zete"
@@ -222,19 +210,57 @@
         android:id="@+id/radioButton5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="무"
         android:textColor="@color/zete"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toEndOf="@+id/radioButton4"
         app:layout_constraintTop_toBottomOf="@+id/radioButton3" />
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:text="여아 ♀"
+        android:textColor="@color/zete"
+        app:layout_constraintEnd_toStartOf="@+id/guideline24"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toEndOf="@+id/radioButton"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText8" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.29" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:text="견종"
+        android:textColor="@color/zete"
+        app:layout_constraintStart_toStartOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <EditText
+        android:id="@+id/editTextText8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:hint="견종을 입력해주세요"
+        android:inputType="text"
+        android:textColor="@color/zete"
+        app:layout_constraintEnd_toStartOf="@+id/guideline24"
+        app:layout_constraintStart_toEndOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
