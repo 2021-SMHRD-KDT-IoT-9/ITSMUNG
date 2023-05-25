@@ -41,8 +41,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintStart_toStartOf="@+id/guideline25"
-        app:layout_constraintTop_toTopOf="@+id/guideline21"
-        app:srcCompat="@drawable/dog_remove" />
+        app:layout_constraintTop_toTopOf="@+id/guideline21"/>
+<!--        app:srcCompat="@drawable/dog_remove" />-->
 
     <EditText
         android:id="@+id/editTextText5"

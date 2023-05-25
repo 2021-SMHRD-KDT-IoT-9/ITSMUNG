@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DoctorMainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="0dp"
+        android:layout_height="175dp"
+        android:backgroundTint="@color/btncolor"
+        android:drawableLeft="@drawable/dog_btn"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:gravity="center|center_horizontal|left|center_vertical"
+        android:text="소다\n성별 : 여아\n나이 : 3세 \n견종:하이브리드종 \n중성화:무"
+        android:textColor="@color/zete"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline29"
+        app:layout_constraintStart_toStartOf="@+id/guideline28"
+        app:layout_constraintTop_toTopOf="@+id/guideline26" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="0dp"
+        android:layout_height="175dp"
+        android:backgroundTint="@color/btncolor"
+        android:drawableLeft="@drawable/dog_btn3"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:gravity="center|center_horizontal|left|center_vertical"
+        android:text="콩이\n성별 : 여아\n나이 : 8세 \n견종:진돗개 \n중성화:무"
+        android:textColor="@color/zete"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline27"
+        app:layout_constraintEnd_toEndOf="@+id/button11"
+        app:layout_constraintStart_toStartOf="@+id/guideline28"
+        app:layout_constraintTop_toBottomOf="@+id/button11" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="0dp"
+        android:layout_height="175dp"
+        android:backgroundTint="@color/btncolor"
+        android:drawableLeft="@drawable/dog_btn2"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:gravity="center|center_horizontal|left|center_vertical"
+        android:text="주스\n성별 : 남아\n나이 : 5세 \n견종:푸들 \n중성화:유"
+        android:textColor="@color/zete"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/button9"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline28"
+        app:layout_constraintTop_toBottomOf="@+id/button9" />
+
+        <!--상태 이상 시 버튼에 아이콘을 생성하여 알림-->
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButton"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:backgroundTint="@color/btncolor"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/guideline29"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/button9"-->
+<!--        app:srcCompat="@drawable/dog_error" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

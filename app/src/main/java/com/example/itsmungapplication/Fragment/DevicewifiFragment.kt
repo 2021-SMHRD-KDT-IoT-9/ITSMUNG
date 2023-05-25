@@ -7,14 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.itsmungapplication.DeviceAdapter
 import com.example.itsmungapplication.DeviceVO
 import com.example.itsmungapplication.R
 
 
 class DevicewifiFragment : Fragment() {
     private lateinit var RecyclerView: RecyclerView
-    private lateinit var DeviceAdapter: DeviceAdapter
+    //private lateinit var DeviceAdapter: DeviceAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,9 +28,9 @@ class DevicewifiFragment : Fragment() {
             wifiList.add(DeviceVO("smhrd_B반"))
             wifiList.add(DeviceVO("smhrd_C반"))
 
-            DeviceAdapter = DeviceAdapter(wifiList)
-            rcv.layoutManager = LinearLayoutManager(requireContext())
-            rcv.adapter = DeviceAdapter
+//            DeviceAdapter = DeviceAdapter(wifiList)
+//            rcv.layoutManager = LinearLayoutManager(requireContext())
+//            rcv.adapter = DeviceAdapter
 
 
 
