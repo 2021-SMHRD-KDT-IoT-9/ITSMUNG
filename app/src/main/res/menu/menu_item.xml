@@ -3,11 +3,22 @@
 
     <item
         android:id="@+id/tab1"
-        android:icon="@drawable/device" />
+        android:icon="@drawable/device"
+        android:title="기기관리" />
     <item
         android:id="@+id/tab2"
-        android:icon="@drawable/baseline_home_24" />
+        android:icon="@drawable/baseline_home_24"
+        android:title="메인페이지"
+        android:checked="true" />
+
+    <!-- 구독 결제 이후 추가할 아이템 -->
+    <item
+        android:id="@+id/tab4"
+        android:icon="@drawable/care2"
+        android:title="전문가" />
     <item
         android:id="@+id/tab3"
-        android:icon="@drawable/outline_person_24" />
+        android:icon="@drawable/outline_person_24"
+        android:title="마이페이지"
+        />
 </menu>

@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                             MypageFragment()
                         ).commit()
                 }
-    // test입니다.
+
            }
                 true
         }
