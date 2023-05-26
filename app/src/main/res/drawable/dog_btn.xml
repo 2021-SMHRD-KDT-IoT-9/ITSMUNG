@@ -4,5 +4,4 @@
         android:drawable="@drawable/dog_remove"
         android:width="130dp"
         android:height="130dp" />
-
 </layer-list>
