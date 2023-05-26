@@ -13,10 +13,22 @@
         android:theme="@style/Theme.ItsmungApplication"
         tools:targetApi="31">
         <activity
-            android:name=".DoctorListActivity"
+            android:name=".CctvActivity"
             android:exported="false" />
         <activity
-            android:name=".PayActivity"
+            android:name=".PaymentCompleteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".DateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DatePickerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PayButtonActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,11 +37,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".DoctorListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PayActivity"
+            android:exported="true" />
+        <activity
             android:name=".DogPeaActivity"
             android:exported="false" />
         <activity
             android:name=".DogStoolActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".DogJoinActivity"
             android:exported="true" />

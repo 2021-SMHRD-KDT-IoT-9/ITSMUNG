@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="card_list">
+        <item>  카드를 선택해주세요.</item>
+        <item>하나은행</item>
+        <item>삼성카드</item>
+        <item>롯데카드</item>
+        <item>우리은행</item>
+        <item>KB은행</item>
+        <item>BC카드</item>
+        <item>농협</item>
+        <item>현대카드</item>
+    </string-array>
+</resources>
