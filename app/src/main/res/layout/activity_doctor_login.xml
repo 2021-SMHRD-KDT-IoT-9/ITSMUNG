@@ -85,7 +85,7 @@
         android:fontFamily="@font/im_hyemin_bold"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        android:text="LOGIN"
+        android:text="L O G I N"
         android:textColor="@color/zete"
         android:textSize="24sp"
         android:textStyle="bold"

@@ -25,6 +25,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <Button
         android:id="@+id/button8"
         android:layout_width="0dp"
@@ -38,8 +39,8 @@
         app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextText9" />
-
+        app:layout_constraintTop_toTopOf="@+id/editTextText9"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -53,11 +54,12 @@
         android:id="@+id/textView28"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:fontFamily="@font/im_hyemin_bold"
         android:gravity="center_vertical"
         android:text="실시간 채팅"
-        android:textSize="25dp"
-        android:fontFamily="@font/im_hyemin_bold"
         android:textColor="@color/zete"
+        android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
