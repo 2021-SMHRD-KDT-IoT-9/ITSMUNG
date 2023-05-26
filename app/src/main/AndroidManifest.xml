@@ -13,17 +13,20 @@
         android:theme="@style/Theme.ItsmungApplication"
         tools:targetApi="31">
         <activity
-            android:name=".DoctorDogDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DoctorMainActivity"
-            android:exported="true">
+            android:name=".livechatActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DoctorDogDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorMainActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".WifiListActivity"
             android:exported="true">

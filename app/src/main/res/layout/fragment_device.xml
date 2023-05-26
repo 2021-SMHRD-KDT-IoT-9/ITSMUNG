@@ -8,10 +8,19 @@
     tools:context=".Fragment.DeviceFragment">
         <!--  장지 연결법 설명 이미지  -->
 
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/guideline18"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toTopOf="@+id/guideline23"></LinearLayout>
+
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="329dp"
+        android:layout_height="465dp"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
         app:layout_constraintHorizontal_bias="0.0"
@@ -62,4 +71,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
