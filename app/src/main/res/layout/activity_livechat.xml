@@ -6,23 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".livechatActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <!--  폰트 변경이 어려움  -->
+
+    <EditText
+        android:id="@+id/editTextText9"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/yellow"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:hint="메세지를 입력하세요"
         android:fontFamily="@font/im_hyemin_bold"
-        android:minHeight="?attr/actionBarSize"
+        android:textColor="@color/zete"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button8"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/btncolor"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:text="보내기"
+        android:textColor="@color/zete"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextText9" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="409dp"
+        android:layout_height="541dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextText9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        android:text="실시간 채팅"
+        android:textSize="25dp"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:textColor="@color/zete"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="실시간 채팅상담" />
-
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="593dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="65dp"></LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

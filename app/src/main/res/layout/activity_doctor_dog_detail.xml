@@ -36,7 +36,7 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="229dp"
+        android:layout_width="0dp"
         android:layout_height="173dp"
         android:src="@drawable/mypage_dog"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
@@ -44,131 +44,20 @@
         app:layout_constraintTop_toTopOf="@+id/guideline21" />
 
     <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="이름 : 소다"
-        android:textColor="@color/zete"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guideline25"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="성별 : 여아"
-        android:textColor="@color/zete"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView21"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="나이 : 3세"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:textColor="@color/zete"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="견종 : 하이브리드종"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:textColor="@color/zete"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView23"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="중성화 : 무"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:textColor="@color/zete"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
-
-    <TextView
         android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/im_hyemin_bold"
-        android:text="대변 하루 횟수 : 5회"
+        android:gravity="center_vertical"
+        android:text="\t\t 대변 하루 횟수 : 5회 \n\t\t 대변 일주일 횟수 : 30회 \n\t\t 소변 일주일 횟수 : 5회 \n\t\t 소변 일주일 횟수 : 45회 \n\t\t 오늘의 무게 : 13.8kg "
         android:textColor="@color/zete"
-        android:textSize="22dp"
+        android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView25"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
-
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="대변 일주일 횟수 : 30회"
-        android:textColor="@color/zete"
-        android:textSize="22dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView26"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="소변 하루 횟수 : 6회"
-        android:textColor="@color/zete"
-        android:textSize="22dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView27"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
-
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="소변 일주일 횟수 : 45회"
-        android:textColor="@color/zete"
-        android:textSize="22dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView28"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
-
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="오늘의 무게 : 13.8kg"
-        android:textColor="@color/zete"
-        android:textSize="22dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline22"
-        app:layout_constraintStart_toStartOf="@+id/textView29"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView10"
+        app:layout_constraintEnd_toStartOf="@+id/guideline24"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline25"
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -178,6 +67,39 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline21"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:srcCompat="@drawable/chatting1" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="333dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textview_btncolor"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:text="\n\t\t 이름 : 소다 \t\t 성별 : 여아 \t\t 나이 : 3세 \n\t\t 견종 : 하이브리드종 \t\t 중성화 : 무 "
+        android:textColor="@color/zete"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline24"
+        app:layout_constraintStart_toStartOf="@+id/guideline25"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="161dp"
+        android:layout_height="109dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline22"
+        app:layout_constraintStart_toStartOf="@+id/guideline25"
+        app:srcCompat="@drawable/error" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline22"
+        app:layout_constraintEnd_toStartOf="@+id/guideline24"
+        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintTop_toTopOf="@+id/imageView10"
+        app:srcCompat="@drawable/error" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
