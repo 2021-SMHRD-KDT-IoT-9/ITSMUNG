@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
                             R.id.fl,
                             MypageFragment()
                         ).commit()
+
+                    //mas
                 }
 
            }
