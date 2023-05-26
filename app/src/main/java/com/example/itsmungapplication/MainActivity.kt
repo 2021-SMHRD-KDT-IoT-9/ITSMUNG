@@ -1,11 +1,9 @@
+/*
 package com.example.itsmungapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
-import com.example.itsmungapplication.Fragment.DeviceFragment
-import com.example.itsmungapplication.Fragment.MainFragment
-import com.example.itsmungapplication.Fragment.MypageFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -16,9 +14,9 @@ class MainActivity : AppCompatActivity() {
         val bnv : BottomNavigationView = findViewById(R.id.bnv)
         val fl : FrameLayout = findViewById(R.id.fl)
 
-        supportFragmentManager.beginTransaction().replace(
+        supportFragmentManager.beginTransaction().//replace(
             R.id.fl,
-            MainFragment()
+           // MainFragment()
         ).commit()
 
         bnv.setOnItemSelectedListener {
@@ -26,20 +24,20 @@ class MainActivity : AppCompatActivity() {
                 R.id.tab1->{ // 기기관리
                         supportFragmentManager.beginTransaction().replace(
                             R.id.fl,
-                            DeviceFragment()
+                          //  DeviceFragment()
                         ).commit()
                 }
                 R.id.tab2->{ // 메인 페이지
                         supportFragmentManager.beginTransaction().replace(
                             R.id.fl,
-                            MainFragment()
+                           // MainFragment()
                         ).commit()
                 }
                 R.id.tab3->{ // 마이 페이지
-                        supportFragmentManager.beginTransaction().replace(
+                      //  supportFragmentManager.beginTransaction().replace(
                             R.id.fl,
-                            MypageFragment()
-                        ).commit()
+                            //MypageFragment()
+                      //  ).commit()
                     // d1
                 }
 
@@ -51,4 +49,5 @@ class MainActivity : AppCompatActivity() {
 
 
 }
+*/
 
