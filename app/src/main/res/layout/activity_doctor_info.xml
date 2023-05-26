@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserJoinActivity">
+    tools:context=".DoctorInfoActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"
@@ -35,7 +35,7 @@
         app:layout_constraintGuide_percent="0.9" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/im_hyemin_bold"
@@ -46,110 +46,118 @@
         app:layout_constraintStart_toStartOf="@+id/guideline15"
         app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
+
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textView31"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="Email"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
     <TextView
-        android:id="@+id/textView12"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="PW"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText"
-        app:layout_constraintStart_toStartOf="@+id/editTextText"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="Tel"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText3"
-        app:layout_constraintStart_toStartOf="@+id/editTextText3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/yellow"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="S I G N"
-        android:textColor="@color/zete"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline16"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
-
-    <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/textView32"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-
         android:ems="10"
         android:fontFamily="@font/im_hyemin_bold"
-        android:hint="example@example.com"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/textView11"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        android:text="처음 등록 값"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView31"
+        app:layout_constraintStart_toStartOf="@+id/textView31"
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:text="PW"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintStart_toStartOf="@+id/textView32"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/editTextText12"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="영문/숫자/특수문자 혼합 8자 이상"
-        android:fontFamily="@font/im_hyemin_bold"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/textView12"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintEnd_toEndOf="@+id/textView33"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
-    <EditText
-        android:id="@+id/editTextText3"
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="@+id/editTextText12"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText12" />
+
+    <TextView
+        android:id="@+id/textView36"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:fontFamily="@font/im_hyemin_bold"
-        android:hint="면허번호를 입력해주세요"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/textView15"
-        app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        android:text="처음 등록 값"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView35"
+        app:layout_constraintStart_toStartOf="@+id/textView35"
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/textView37"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="License number"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/editTextText10"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText10" />
+        app:layout_constraintEnd_toEndOf="@+id/textView36"
+        app:layout_constraintStart_toStartOf="@+id/textView36"
+        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:inputType="text"
+        android:text="처음 등록 값"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView37"
+        app:layout_constraintStart_toStartOf="@+id/textView37"
+        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:text="Tel"
+        app:layout_constraintEnd_toEndOf="@+id/textView38"
+        app:layout_constraintStart_toStartOf="@+id/textView38"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/editTextText13"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -157,32 +165,28 @@
         android:ems="10"
         android:hint="'-' 를 제외한 숫자만 입력하세요"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/textView14"
-        app:layout_constraintStart_toStartOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintEnd_toEndOf="@+id/textView39"
+        app:layout_constraintStart_toStartOf="@+id/textView39"
+        app:layout_constraintTop_toBottomOf="@+id/textView39"  />
 
-    <TextView
-        android:id="@+id/textView25"
+
+    <Button
+        android:id="@+id/button4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/yellow"
         android:fontFamily="@font/im_hyemin_bold"
-        android:text="Name"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="저 장 하 기"
+        android:textColor="@color/zete"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline16"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/editTextText2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText13" />
 
-    <EditText
-        android:id="@+id/editTextText10"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:hint="이름을 입력해주세요"
-        android:inputType="text"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/textView25"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

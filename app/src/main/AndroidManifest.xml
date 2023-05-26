@@ -16,25 +16,14 @@
             android:name=".CctvActivity"
             android:exported="false" />
         <activity
-            android:name=".PaymentCompleteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".DateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DatePickerActivity"
-            android:exported="false" />
-        <activity
             android:name=".PayButtonActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="true"/>
+        <activity
+            android:name=".UserInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorInfoActivity"
+            android:exported="true" >
         </activity>
         <activity
             android:name=".DoctorListActivity"
@@ -46,6 +35,15 @@
             android:name=".DogPeaActivity"
             android:exported="false" />
         <activity
+            android:name=".DoctorMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DoctorDogDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".livechatActivity"
+            android:exported="true" />
+        <activity
             android:name=".DogStoolActivity"
             android:exported="true" />
         <activity
@@ -53,10 +51,12 @@
             android:exported="true" />
         <activity
             android:name=".DoctorJoinActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".UserJoinActivity"
-            android:exported="false" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".UserLoginActivity"
             android:exported="false" />
