@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
-    tools:context=".PayCompleteActivity2">
+    tools:context=".PayCompleteActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline41"
@@ -95,7 +95,7 @@
         app:srcCompat="@drawable/complete" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btn_pay_complete"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"

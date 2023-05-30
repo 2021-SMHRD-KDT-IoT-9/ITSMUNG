@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline23" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_device"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:backgroundTint="@color/btncolor"

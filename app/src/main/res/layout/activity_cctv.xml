@@ -51,18 +51,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <WebView
+        android:id="@+id/web_cctv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="28dp"
         android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/button11"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cctv"
         app:layout_constraintEnd_toStartOf="@+id/guideline47"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/guideline46"
         app:layout_constraintTop_toTopOf="@+id/guideline40" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/btn_cctv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

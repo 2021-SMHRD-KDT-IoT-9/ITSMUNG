@@ -36,7 +36,7 @@
         app:layout_constraintGuide_percent="0.1" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_mypage_dogusername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -61,10 +61,10 @@
         android:textColor="@color/zete"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/tv_mypage_dogusername"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/tv_mypage_dogusername"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mypage_dogusername" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -76,7 +76,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_mypage_username"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tv_mypage_usertel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -98,12 +98,12 @@
         android:text="010 - 1234 - 5678"
         android:textColor="@color/zete"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/tv_mypage_username"
+        app:layout_constraintStart_toStartOf="@+id/tv_mypage_username"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_mypage_useraccount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -137,7 +137,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/btn_date"
+        android:id="@+id/btn_mypage_change"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="210dp"
@@ -153,7 +153,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_mypage_useraccount" />
 
     <TextView
         android:id="@+id/textView7"
@@ -182,8 +182,8 @@
         android:textSize="11sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintStart_toStartOf="@+id/tv_mypage_username"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mypage_username" />
 
     <TextView
         android:id="@+id/textView9"
@@ -197,7 +197,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="@+id/tv_mypage_usertel"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mypage_usertel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

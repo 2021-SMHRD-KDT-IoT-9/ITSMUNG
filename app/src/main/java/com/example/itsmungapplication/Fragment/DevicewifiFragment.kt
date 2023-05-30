@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.itsmungapplication.DeviceVO
 import com.example.itsmungapplication.R
@@ -21,7 +20,7 @@ class DevicewifiFragment : Fragment() {
         ): View? {
             // Inflate the layout for this fragment
             val view =  inflater.inflate(R.layout.fragment_devicewifi, container, false)
-            val rcv : RecyclerView = view.findViewById(R.id.rcv)
+            val rcv : RecyclerView = view.findViewById(R.id.rcv_devicewifi)
             val wifiList : MutableList<DeviceVO> = mutableListOf()
             wifiList.add(DeviceVO("itmung"))
             wifiList.add(DeviceVO("smhrd_A반"))

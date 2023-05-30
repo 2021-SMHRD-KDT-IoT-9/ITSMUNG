@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/neuter"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     tools:context=".DogJoinActivity">
@@ -35,7 +36,7 @@
         app:layout_constraintGuide_percent="0.1" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btn_dog_join_save"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="109dp"
@@ -64,7 +65,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/img_dog_join"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -97,7 +98,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/et_dog_join_name"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -108,10 +109,10 @@
         android:textColor="@color/zete"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintStart_toEndOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/img_dog_join" />
 
     <EditText
-        android:id="@+id/editTextText6"
+        android:id="@+id/et_dog_join_birthday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -120,9 +121,9 @@
         android:hint="2023년 5월 25일"
         android:inputType="text"
         android:textColor="@color/zete"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText5"
+        app:layout_constraintEnd_toEndOf="@+id/et_dog_join_name"
         app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+        app:layout_constraintTop_toBottomOf="@+id/et_dog_join_name" />
 
     <TextView
         android:id="@+id/textView18"
@@ -136,7 +137,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <EditText
-        android:id="@+id/editTextText7"
+        android:id="@+id/et_dog_join_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -146,7 +147,7 @@
         android:inputType="text"
         android:textColor="@color/zete"
         app:layout_constraintStart_toEndOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText6" />
+        app:layout_constraintTop_toBottomOf="@+id/et_dog_join_birthday" />
 
     <TextView
         android:id="@+id/textView19"
@@ -157,11 +158,11 @@
         android:text="kg"
         android:textColor="@color/zete"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
-        app:layout_constraintStart_toEndOf="@+id/editTextText7"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText6" />
+        app:layout_constraintStart_toEndOf="@+id/et_dog_join_weight"
+        app:layout_constraintTop_toBottomOf="@+id/et_dog_join_birthday" />
 
     <RadioButton
-        android:id="@+id/radioButton"
+        android:id="@+id/radio_dog_join_man"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -170,7 +171,7 @@
         android:text="남아 ♂"
         android:textColor="@color/zete"
         app:layout_constraintStart_toEndOf="@+id/textView20"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText8" />
+        app:layout_constraintTop_toBottomOf="@+id/et_dog_join_breed" />
 
     <TextView
         android:id="@+id/textView20"
@@ -195,7 +196,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <RadioButton
-        android:id="@+id/radioButton4"
+        android:id="@+id/radio_dog_join_reuter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -204,10 +205,10 @@
         android:text="유"
         android:textColor="@color/zete"
         app:layout_constraintStart_toEndOf="@+id/textView21"
-        app:layout_constraintTop_toBottomOf="@+id/radioButton" />
+        app:layout_constraintTop_toBottomOf="@+id/radio_dog_join_man" />
 
     <RadioButton
-        android:id="@+id/radioButton5"
+        android:id="@+id/radio_dog_join_nonereuter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -216,11 +217,11 @@
         android:textColor="@color/zete"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toEndOf="@+id/radioButton4"
-        app:layout_constraintTop_toBottomOf="@+id/radioButton3" />
+        app:layout_constraintStart_toEndOf="@+id/radio_dog_join_reuter"
+        app:layout_constraintTop_toBottomOf="@+id/radio_dog_join_woman" />
 
     <RadioButton
-        android:id="@+id/radioButton3"
+        android:id="@+id/radio_dog_join_woman"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -229,8 +230,8 @@
         android:textColor="@color/zete"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toEndOf="@+id/radioButton"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText8" />
+        app:layout_constraintStart_toEndOf="@+id/radio_dog_join_man"
+        app:layout_constraintTop_toBottomOf="@+id/et_dog_join_breed" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline18"
@@ -251,7 +252,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <EditText
-        android:id="@+id/editTextText8"
+        android:id="@+id/et_dog_join_breed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -261,6 +262,6 @@
         android:textColor="@color/zete"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintStart_toEndOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
+        app:layout_constraintTop_toBottomOf="@+id/et_dog_join_weight" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
