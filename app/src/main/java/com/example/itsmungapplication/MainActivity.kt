@@ -1,9 +1,11 @@
-/*
 package com.example.itsmungapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
+import com.example.itsmungapplication.fragment.DoctorInfoFragment
+import com.example.itsmungapplication.fragment.DoctorMainFragment
+import com.example.itsmungapplication.fragment.LiveChatFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -11,43 +13,49 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val bnv : BottomNavigationView = findViewById(R.id.bnv)
-        val fl : FrameLayout = findViewById(R.id.fl)
+        val bnv: BottomNavigationView = findViewById(R.id.bnv)
+        val fl: FrameLayout = findViewById(R.id.fl)
 
-        supportFragmentManager.beginTransaction().//replace(
+        // 첫화면(실행시) 보이게
+        supportFragmentManager.beginTransaction().replace(
             R.id.fl,
-           // MainFragment()
+            DoctorMainFragment()
         ).commit()
 
         bnv.setOnItemSelectedListener {
-            when(it.itemId){
-                R.id.tab1->{ // 기기관리
-                        supportFragmentManager.beginTransaction().replace(
-                            R.id.fl,
-                          //  DeviceFragment()
-                        ).commit()
-                }
-                R.id.tab2->{ // 메인 페이지
-                        supportFragmentManager.beginTransaction().replace(
-                            R.id.fl,
-                           // MainFragment()
-                        ).commit()
-                }
-                R.id.tab3->{ // 마이 페이지
-                      //  supportFragmentManager.beginTransaction().replace(
-                            R.id.fl,
-                            //MypageFragment()
-                      //  ).commit()
-                    // d1
+            // it --> 내가 클릭한 item의 아이디, 속성 .. 정보를 받아온다
+            // it.itemId : 내가 클릭한 항목의 id
+            when (it.itemId) {
+                R.id.tab1 -> {
+                    // 프래그먼트 매니저가 관리
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.fl,
+                        DoctorMainFragment()
+                    ).commit()
+                    // replace() : 화면을 대체
+                    // 1) 어디에 : FrameLayout
+                    // 2) 뭘로 : HomeFramnet
                 }
 
-           }
-                true
+                R.id.tab2 -> {
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.fl,
+                        DoctorInfoFragment()
+                    ).commit()
+                }
+
+                R.id.tab3 -> {
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.fl,
+                        LiveChatFragment()
+                    ).commit()
+                }
+
+            }
+            // click 이벤트가 끝나지 않았다고 판단 false
+            //  false면 다음 클릭을 해도 색이 변경되지 않음
+            // true : 클립이벤트가 끝났다 다음 클릭으로 넘어가라
+            true //return
         }
-
     }
-
-
 }
-*/
-

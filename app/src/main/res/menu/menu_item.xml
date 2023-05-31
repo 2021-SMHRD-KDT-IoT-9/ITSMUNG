@@ -1,17 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-<item
-    android:id="@+id/tab1"
-    android:icon="@drawable/repair1"
-    android:title="기기관리" />
+    <item
+        android:id="@+id/tab1"
+        android:icon="@drawable/list1"
+        android:title="DogList" />
 
-<item
-    android:id="@+id/tab2"
-    android:icon="@drawable/home1"
-    android:title="Home" />
+    <item
+        android:id="@+id/tab2"
+        android:icon="@drawable/identity1"
+        android:title="Mypage" />
 
-<item
-    android:id="@+id/tab3"
-    android:icon="@drawable/identity1"
-    android:title="마이페이지" />
+    <item
+        android:id="@+id/tab3"
+        android:icon="@drawable/chatting1"
+        android:title="Livechat" />
 </menu>

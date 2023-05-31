@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserJoinActivity">
+    tools:context=".DoctorJoinActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"
@@ -64,9 +64,9 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="PW"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText"
-        app:layout_constraintStart_toStartOf="@+id/editTextText"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintEnd_toEndOf="@+id/et_doctor_join_email"
+        app:layout_constraintStart_toStartOf="@+id/et_doctor_join_email"
+        app:layout_constraintTop_toBottomOf="@+id/et_doctor_join_email" />
 
     <TextView
         android:id="@+id/textView14"
@@ -75,12 +75,12 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="Tel"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText3"
-        app:layout_constraintStart_toStartOf="@+id/editTextText3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintEnd_toEndOf="@+id/et_doctor_join_license"
+        app:layout_constraintStart_toStartOf="@+id/et_doctor_join_license"
+        app:layout_constraintTop_toBottomOf="@+id/et_doctor_join_license" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_doctor_join_sign"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -95,10 +95,10 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline16"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintTop_toBottomOf="@+id/et_doctor_join_tel" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/et_doctor_join_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -112,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/et_doctor_join_pw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -125,7 +125,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/et_doctor_join_license"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -145,11 +145,11 @@
         android:fontFamily="@font/im_hyemin_bold"
         android:text="License number"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/editTextText10"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText10" />
+        app:layout_constraintStart_toStartOf="@+id/et_doctor_join_name"
+        app:layout_constraintTop_toBottomOf="@+id/et_doctor_join_name" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/et_doctor_join_tel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -169,11 +169,11 @@
         android:fontFamily="@font/im_hyemin_bold"
         android:text="Name"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/editTextText2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintStart_toStartOf="@+id/et_doctor_join_pw"
+        app:layout_constraintTop_toBottomOf="@+id/et_doctor_join_pw" />
 
     <EditText
-        android:id="@+id/editTextText10"
+        android:id="@+id/et_doctor_join_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
