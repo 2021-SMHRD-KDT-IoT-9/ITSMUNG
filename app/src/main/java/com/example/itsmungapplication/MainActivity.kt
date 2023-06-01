@@ -25,14 +25,25 @@ class MainActivity : AppCompatActivity() {
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .commit()
         }
+        // 전문가 서비스를 구독했는지 안했는지 파악합니다.
+        val matching: Boolean = false
 
+        if (matching) {
+            bnv.menu.clear()  // 기존 메뉴 삭제
+            bnv.inflateMenu(R.menu.menu_item2)  // menu_item.xml 메뉴 적용
+        } else {
+            bnv.menu.clear()  // 기존 메뉴 삭제
+            bnv.inflateMenu(R.menu.menu_item)  // menu_item2.xml 메뉴 적용
+        }
         supportFragmentManager.beginTransaction().replace(
             R.id.fl,
             HomeFragment()
         ).commit()
 
+
         bnv.setOnItemSelectedListener {
             when(it.itemId){
+
                 R.id.tab1->{ // 메인 페이지
                         supportFragmentManager.beginTransaction().replace(
                             R.id.fl,
@@ -45,13 +56,13 @@ class MainActivity : AppCompatActivity() {
                             DeviceFragment()
                         ).commit()
                 }
-//                R.id.tab3->{ // 전문가 페이지
+                R.id.tab3->{ // 전문가 페이지
 //                        supportFragmentManager.beginTransaction().replace(
 //                            R.id.fl,
 //                            ExpertFragment()
 //                        ).commit()
 //                    // do
-//                }
+                }
                 R.id.tab4->{ // 마이 페이지
                     supportFragmentManager.beginTransaction().replace(
                         R.id.fl,
