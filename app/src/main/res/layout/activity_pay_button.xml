@@ -48,21 +48,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText9"
+        android:id="@+id/et_pay_button_cardnum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="35dp"
         android:ems="10"
         android:fontFamily="@font/im_hyemin_bold"
         android:hint="카드 번호"
         android:inputType="text"
-        app:layout_constraintEnd_toStartOf="@+id/guideline39"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toStartOf="@+id/guideline38"
-        app:layout_constraintTop_toTopOf="@+id/guideline36" />
+        app:layout_constraintEnd_toEndOf="@+id/spinner2"
+        app:layout_constraintStart_toStartOf="@+id/spinner2"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 
     <EditText
-        android:id="@+id/editTextText10"
+        android:id="@+id/et_pay_button_expiry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -70,12 +69,12 @@
         android:hint="만료일(일/년)"
         android:inputType="text"
         android:fontFamily="@font/im_hyemin_bold"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText9"
-        app:layout_constraintStart_toStartOf="@+id/editTextText9"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText9" />
+        app:layout_constraintEnd_toEndOf="@+id/et_pay_button_cardnum"
+        app:layout_constraintStart_toStartOf="@+id/et_pay_button_cardnum"
+        app:layout_constraintTop_toBottomOf="@+id/et_pay_button_cardnum" />
 
     <EditText
-        android:id="@+id/et_user_info_name"
+        android:id="@+id/et_pay_button_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -83,12 +82,12 @@
         android:hint="이름"
         android:inputType="text"
         android:fontFamily="@font/im_hyemin_bold"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText10"
-        app:layout_constraintStart_toStartOf="@+id/editTextText10"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText10" />
+        app:layout_constraintEnd_toEndOf="@+id/et_pay_button_expiry"
+        app:layout_constraintStart_toStartOf="@+id/et_pay_button_expiry"
+        app:layout_constraintTop_toBottomOf="@+id/et_pay_button_expiry" />
 
     <EditText
-        android:id="@+id/editTextText12"
+        android:id="@+id/et_pay_button_years"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -96,12 +95,12 @@
         android:hint="생년"
         android:inputType="text"
         android:fontFamily="@font/im_hyemin_bold"
-        app:layout_constraintEnd_toEndOf="@+id/et_user_info_name"
-        app:layout_constraintStart_toStartOf="@+id/et_user_info_name"
-        app:layout_constraintTop_toBottomOf="@+id/et_user_info_name" />
+        app:layout_constraintEnd_toEndOf="@+id/et_pay_button_name"
+        app:layout_constraintStart_toStartOf="@+id/et_pay_button_name"
+        app:layout_constraintTop_toBottomOf="@+id/et_pay_button_name" />
 
     <EditText
-        android:id="@+id/editTextText13"
+        android:id="@+id/et_pay_button_month"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -109,12 +108,12 @@
         android:hint="월"
         android:inputType="text"
         android:fontFamily="@font/im_hyemin_bold"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText12"
-        app:layout_constraintStart_toStartOf="@+id/editTextText12"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText12" />
+        app:layout_constraintEnd_toEndOf="@+id/et_pay_button_years"
+        app:layout_constraintStart_toStartOf="@+id/et_pay_button_years"
+        app:layout_constraintTop_toBottomOf="@+id/et_pay_button_years" />
 
     <EditText
-        android:id="@+id/editTextText14"
+        android:id="@+id/et_pay_button_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -122,28 +121,27 @@
         android:hint="일"
         android:inputType="text"
         android:fontFamily="@font/im_hyemin_bold"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText13"
-        app:layout_constraintStart_toStartOf="@+id/editTextText13"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText13" />
+        app:layout_constraintEnd_toEndOf="@+id/et_pay_button_month"
+        app:layout_constraintStart_toStartOf="@+id/et_pay_button_month"
+        app:layout_constraintTop_toBottomOf="@+id/et_pay_button_month" />
 
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="55dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/textview_yellow"
         android:entries="@array/card_list"
         android:fontFamily="@font/im_hyemin_bold"
-        android:background="@drawable/textview_yellow"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText9"
         app:layout_constraintEnd_toStartOf="@+id/guideline39"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline38"
-        app:layout_constraintTop_toTopOf="@+id/guideline36"
-        app:layout_constraintVertical_bias="0.518" />
+        app:layout_constraintTop_toTopOf="@+id/guideline36" />
 
     <Button
-        android:id="@+id/button18"
+        android:id="@+id/btn_pay_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -154,8 +152,8 @@
         android:fontFamily="@font/im_hyemin_bold"
         android:textColor="@color/zete"
         app:layout_constraintBottom_toTopOf="@+id/guideline37"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText14"
-        app:layout_constraintStart_toStartOf="@+id/editTextText14"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText14" />
+        app:layout_constraintEnd_toEndOf="@+id/et_pay_button_day"
+        app:layout_constraintStart_toStartOf="@+id/et_pay_button_day"
+        app:layout_constraintTop_toBottomOf="@+id/et_pay_button_day" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

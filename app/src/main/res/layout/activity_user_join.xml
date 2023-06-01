@@ -64,9 +64,9 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="PW"
-        app:layout_constraintEnd_toEndOf="@+id/et_user_info_email"
-        app:layout_constraintStart_toStartOf="@+id/et_user_info_email"
-        app:layout_constraintTop_toBottomOf="@+id/et_user_info_email" />
+        app:layout_constraintEnd_toEndOf="@+id/et_user_join_email"
+        app:layout_constraintStart_toStartOf="@+id/et_user_join_email"
+        app:layout_constraintTop_toBottomOf="@+id/et_user_join_email" />
 
     <TextView
         android:id="@+id/textView14"
@@ -75,12 +75,12 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="Tel"
-        app:layout_constraintEnd_toEndOf="@+id/et_user_info_nickname"
-        app:layout_constraintStart_toStartOf="@+id/et_user_info_nickname"
-        app:layout_constraintTop_toBottomOf="@+id/et_user_info_nickname" />
+        app:layout_constraintEnd_toEndOf="@+id/et_user_join_nick"
+        app:layout_constraintStart_toStartOf="@+id/et_user_join_nick"
+        app:layout_constraintTop_toBottomOf="@+id/et_user_join_nick" />
 
     <Button
-        android:id="@+id/btn_user_info_sign"
+        android:id="@+id/btn_user_join_sign"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -95,10 +95,10 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline16"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toBottomOf="@+id/et_user_info_tel" />
+        app:layout_constraintTop_toBottomOf="@+id/et_user_join_tel" />
 
     <EditText
-        android:id="@+id/et_user_info_email"
+        android:id="@+id/et_user_join_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -111,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
-        android:id="@+id/et_user_info_pw"
+        android:id="@+id/et_user_join_pw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -124,7 +124,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <EditText
-        android:id="@+id/et_user_info_nickname"
+        android:id="@+id/et_user_join_nick"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -143,12 +143,12 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="Nickname"
-        app:layout_constraintEnd_toEndOf="@+id/et_user_info_name"
-        app:layout_constraintStart_toStartOf="@+id/et_user_info_name"
-        app:layout_constraintTop_toBottomOf="@+id/et_user_info_name" />
+        app:layout_constraintEnd_toEndOf="@+id/et_user_join_name"
+        app:layout_constraintStart_toStartOf="@+id/et_user_join_name"
+        app:layout_constraintTop_toBottomOf="@+id/et_user_join_name" />
 
     <EditText
-        android:id="@+id/et_user_info_tel"
+        android:id="@+id/et_user_join_tel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -167,12 +167,12 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="Name"
-        app:layout_constraintEnd_toEndOf="@+id/et_user_info_pw"
-        app:layout_constraintStart_toStartOf="@+id/et_user_info_pw"
-        app:layout_constraintTop_toBottomOf="@+id/et_user_info_pw" />
+        app:layout_constraintEnd_toEndOf="@+id/et_user_join_pw"
+        app:layout_constraintStart_toStartOf="@+id/et_user_join_pw"
+        app:layout_constraintTop_toBottomOf="@+id/et_user_join_pw" />
 
     <EditText
-        android:id="@+id/et_user_info_name"
+        android:id="@+id/et_user_join_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

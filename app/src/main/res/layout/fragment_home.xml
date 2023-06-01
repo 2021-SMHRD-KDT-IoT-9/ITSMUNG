@@ -2,16 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout3"
+    android:id="@+id/fl_mypage"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".Fragment.MypageFragment">
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/imgbtn_main_banner"></LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -28,7 +22,7 @@
         app:layout_constraintGuide_percent="0.9" />
 
     <Button
-        android:id="@+id/btn_main_dogstool"
+        android:id="@+id/btn_home_dogstool"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
@@ -43,10 +37,10 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/btn_main_doginfochange" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_home_doginfochange" />
 
     <Button
-        android:id="@+id/btn_main_cctv"
+        android:id="@+id/btn_home_cctv"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
@@ -58,13 +52,13 @@
         android:textColor="@color/zete"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/btn_main_dogpea"
+        app:layout_constraintEnd_toEndOf="@+id/btn_home_dogpea"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btn_main_dogpea"
-        app:layout_constraintTop_toBottomOf="@+id/btn_main_dogpea" />
+        app:layout_constraintStart_toStartOf="@+id/btn_home_dogpea"
+        app:layout_constraintTop_toBottomOf="@+id/btn_home_dogpea" />
 
     <Button
-        android:id="@+id/btn_main_dogpea"
+        android:id="@+id/btn_home_dogpea"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
@@ -76,13 +70,13 @@
         android:textColor="@color/zete"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/btn_main_dogstool"
+        app:layout_constraintEnd_toEndOf="@+id/btn_home_dogstool"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btn_main_dogstool"
-        app:layout_constraintTop_toBottomOf="@+id/btn_main_dogstool" />
+        app:layout_constraintStart_toStartOf="@+id/btn_home_dogstool"
+        app:layout_constraintTop_toBottomOf="@+id/btn_home_dogstool" />
 
     <Button
-        android:id="@+id/btn_main_weight"
+        android:id="@+id/btn_home_weight"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
@@ -95,10 +89,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btn_main_cctv"
+        app:layout_constraintEnd_toEndOf="@+id/btn_home_cctv"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/btn_main_cctv"
-        app:layout_constraintTop_toBottomOf="@+id/btn_main_cctv" />
+        app:layout_constraintStart_toStartOf="@+id/btn_home_cctv"
+        app:layout_constraintTop_toBottomOf="@+id/btn_home_cctv" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
@@ -108,18 +102,19 @@
         app:layout_constraintGuide_end="370dp" />
 
     <ImageButton
-        android:id="@+id/imgbtn_main_banner"
+        android:id="@+id/imgbtn_home_banner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/blue"
         android:src="@drawable/mun1"
         app:layout_constraintCircleRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_main_doginfochange"
+        android:id="@+id/btn_home_doginfochange"
         android:layout_width="0dp"
         android:layout_height="167dp"
         android:backgroundTint="@color/btncolor"
@@ -133,6 +128,6 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtn_main_banner" />
+        app:layout_constraintTop_toBottomOf="@+id/imgbtn_home_banner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

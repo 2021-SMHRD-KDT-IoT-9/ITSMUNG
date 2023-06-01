@@ -51,7 +51,7 @@
     <CalendarView
         android:id="@+id/cal_dogstool"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="340dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline28"
         app:layout_constraintStart_toStartOf="@+id/guideline27"
