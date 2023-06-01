@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 
 class UserLoginActivity : AppCompatActivity() {
 
@@ -46,20 +47,27 @@ class UserLoginActivity : AppCompatActivity() {
 
 
             // test 예시
-             if(id == "test" && pw == "1234"){
-                    // 사용자가 로그인 아이디를 저
+             if(id == "test" && pw == "1234") {
+                 // 사용자가 로그인 아이디를 저
 
-                    editor.putString("user_id", id) // "user_id"라는 키에 아이디를 저장
-                    editor.putBoolean("isLoggedIn",true)
-                    editor.putLong("lastLoginTime", System.currentTimeMillis()) // 사용자가 로그인한 시간을 저장
-                    editor.apply()
+                 editor.putString("user_id", id) // "user_id"라는 키에 아이디를 저장
+                 editor.putBoolean("isLoggedIn", true)
+                 editor.putLong("lastLoginTime", System.currentTimeMillis()) // 사용자가 로그인한 시간을 저장
+                 editor.apply()
 
-                    val intent = Intent(this@UserLoginActivity,
-                        MainActivity::class.java)
-                    startActivity(intent)
-                     // 이동하고 stack 삭제
-                    finish()
-            }
+                 val intent = Intent(
+                     this@UserLoginActivity,
+                     MainActivity::class.java
+                 )
+                 startActivity(intent)
+                 Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+                 // 이동하고 stack 삭제
+                 finish()
+             }else{
+                 et_btn_id.setText("")
+                 et_btn_pw.setText("")
+                 Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
+             }
 
         }
         btn_join.setOnClickListener {
