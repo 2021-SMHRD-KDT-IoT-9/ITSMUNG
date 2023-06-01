@@ -103,6 +103,7 @@
 
     <ImageButton
         android:id="@+id/imgbtn_home_banner"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/blue"
