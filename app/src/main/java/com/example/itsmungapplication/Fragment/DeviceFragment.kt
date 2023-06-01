@@ -44,7 +44,7 @@ class DeviceFragment : Fragment() {
     }
 
     private fun scanSuccess() {
-        val results = wifiManager.scanResults
+//        val results = wifiManager.scanResults
         // TODO: Wi-Fi 스캔 결과 사용
     }
 

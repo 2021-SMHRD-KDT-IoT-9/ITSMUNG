@@ -34,14 +34,15 @@ class UserLoginActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("my_app", Context.MODE_PRIVATE)
         editor = sharedPreferences.edit()
         // 사용자 로그인 상태 확인 및 처리
-        checkLoginStatus()
+//        checkLoginStatus()
+
 
         btn_login.setOnClickListener {
             var id : String = et_btn_id.text.toString()
             var pw : String = et_btn_pw.text.toString()
 
-            // DB에 회원 id와  비밀번호를 확인합니다.
-            // select 해서 가져오는 값이 있는 경우 true를 반환합니다. 없는 경우 로그인에 실패합니다.
+            // TODO: DB에 회원 id와  비밀번호를 확인합니다.
+            // TODO: select 해서 가져오는 값이 있는 경우 true를 반환합니다. 없는 경우 로그인에 실패합니다.
 
 
             // test 예시
