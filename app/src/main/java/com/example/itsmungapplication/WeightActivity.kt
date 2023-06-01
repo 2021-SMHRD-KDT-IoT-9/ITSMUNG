@@ -16,6 +16,7 @@ class WeightActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weight)
 
+        // TODO : 최근 일주일 데이터를 가져와서 입력해야한다. 이 부분 작성 누구???
         // 그래프 뷰 초기화
         val chart: LineChart = findViewById(R.id.chart)
         val xAxis: XAxis = chart.xAxis
