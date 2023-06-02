@@ -35,7 +35,7 @@ class UserLoginActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("my_app", Context.MODE_PRIVATE)
         editor = sharedPreferences.edit()
         // 사용자 로그인 상태 확인 및 처리
-//        checkLoginStatus()
+        checkLoginStatus()
 
 
         btn_login.setOnClickListener {

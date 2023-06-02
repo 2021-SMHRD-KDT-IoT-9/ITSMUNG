@@ -29,6 +29,8 @@ class DogJoinActivity : AppCompatActivity() {
         val radio_dog_join_reuter : RadioButton = findViewById(R.id.radio_dog_join_reuter)
         val radio_dog_join_nonereuter : RadioButton = findViewById(R.id.radio_dog_join_nonereuter)
         val btn_dog_join_save : Button = findViewById(R.id.btn_dog_join_save)
+
+
         if(name == ""){
             btn_dog_join_save.setText("등록하기")
         }
