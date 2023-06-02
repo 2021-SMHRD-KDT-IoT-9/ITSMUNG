@@ -22,6 +22,7 @@ class MypageFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_mypage, container, false)
 
         val btn_mypage_change: Button = view.findViewById(R.id.btn_mypage_change)
+        val btn_mypage_logout : Button = view.findViewById(R.id.btn_mypage_logout)
 
         btn_mypage_change.setOnClickListener {
             val intent = Intent(activity, UserInfoActivity::class.java)

@@ -17,6 +17,7 @@ class DogJoinActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dog_join)
         var name = intent.getStringExtra("dog_name")
         var gender = intent.getStringExtra("dog_gender")
+        var age = intent.getStringExtra("dog_age")
         var species = intent.getStringExtra("dog_species")
         // 견종
         var neutered = intent.getStringExtra("dog_neutered")

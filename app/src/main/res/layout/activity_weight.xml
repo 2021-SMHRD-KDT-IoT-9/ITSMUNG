@@ -38,6 +38,7 @@
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="오늘의 무게"
+        android:textAlignment="center"
         android:textColor="@color/zete"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline35"
