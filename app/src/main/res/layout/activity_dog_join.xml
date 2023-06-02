@@ -195,30 +195,32 @@
         app:layout_constraintStart_toStartOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
-    <RadioButton
-        android:id="@+id/radio_dog_join_reuter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="유"
-        android:textColor="@color/zete"
-        app:layout_constraintStart_toEndOf="@+id/textView21"
-        app:layout_constraintTop_toBottomOf="@+id/radio_dog_join_man" />
 
-    <RadioButton
-        android:id="@+id/radio_dog_join_nonereuter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="무"
-        android:textColor="@color/zete"
-        app:layout_constraintEnd_toStartOf="@+id/guideline24"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toEndOf="@+id/radio_dog_join_reuter"
-        app:layout_constraintTop_toBottomOf="@+id/radio_dog_join_woman" />
+        <RadioButton
+            android:id="@+id/radio_dog_join_reuter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/im_hyemin_bold"
+            android:text="유"
+            android:textColor="@color/zete"
+            app:layout_constraintStart_toEndOf="@+id/textView21"
+            app:layout_constraintTop_toBottomOf="@+id/radio_dog_join_man" />
+
+        <RadioButton
+            android:id="@+id/radio_dog_join_nonereuter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/im_hyemin_bold"
+            android:text="무"
+            android:textColor="@color/zete"
+            app:layout_constraintEnd_toStartOf="@+id/guideline24"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toEndOf="@+id/radio_dog_join_reuter"
+            app:layout_constraintTop_toBottomOf="@+id/radio_dog_join_woman" />
+
 
     <RadioButton
         android:id="@+id/radio_dog_join_woman"
