@@ -3,8 +3,8 @@ package com.example.itsmungapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
-import com.example.itsmungapplication.fragment.DoctorInfoFragment
 import com.example.itsmungapplication.fragment.DoctorMainFragment
+import com.example.itsmungapplication.fragment.DoctorMypageFragment
 import com.example.itsmungapplication.fragment.LiveChatFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.tab2 -> {
                     supportFragmentManager.beginTransaction().replace(
                         R.id.fl,
-                        DoctorInfoFragment()
+                        DoctorMypageFragment()
                     ).commit()
                 }
 

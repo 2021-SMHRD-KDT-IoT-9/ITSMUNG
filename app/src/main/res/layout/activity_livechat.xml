@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".livechatActivity">
+    tools:context=".LivechatActivity">
 
     <!--  폰트 변경이 어려움  -->
 
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:ems="10"
-        android:hint="메세지를 입력하세요"
+        android:hint="메시지를 입력하세요"
         android:fontFamily="@font/im_hyemin_bold"
         android:textColor="@color/zete"
         android:textSize="18sp"
