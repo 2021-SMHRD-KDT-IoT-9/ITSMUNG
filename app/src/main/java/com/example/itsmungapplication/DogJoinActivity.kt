@@ -1,29 +1,68 @@
 package com.example.itsmungapplication
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
+import androidx.annotation.RequiresApi
+import java.time.LocalDate
+
 
 class DogJoinActivity : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dog_join)
         var name = intent.getStringExtra("dog_name")
-        var age = intent.getIntExtra("dog_age", 0)
         var gender = intent.getStringExtra("dog_gender")
         var species = intent.getStringExtra("dog_species")
         // 견종
         var neutered = intent.getStringExtra("dog_neutered")
         
-
+        // TODO : DB에서 반려견의 이름을 가져옵니다.
         val et_dog_join_name : EditText = findViewById(R.id.et_dog_join_name)
+        if (name != null) {
+            if(name.isNotEmpty()){
+                et_dog_join_name.setText(name)
+            }
+        }
+
+
         // TODO : 생년월일 사용자가 전부 입력하도록!  --> datePicker
         // TODO : 생년월일을 DB에서 가져온다.
-        val et_dog_join_birthday : EditText = findViewById(R.id.et_dog_join_birthday)
+        val et_dog_join_year : EditText = findViewById(R.id.et_dog_join_year)
+        val et_dog_join_month : EditText = findViewById(R.id.et_dog_join_month)
+        val et_dog_join_day : EditText = findViewById(R.id.et_dog_join_day)
+        // DB에서 가져온 경우
+        // 아래가 DB에 있는 경우
+        var birthday : String = "2020-05-07"
+        if (birthday.isNotEmpty()) {
+            val parts = birthday.split("-") // 년, 월, 일로 분리합니다.
+            if (parts.size == 3) {
+                val year = parts[0]
+                val month = parts[1]
+                val day = parts[2]
+
+                et_dog_join_year.setText(year)
+                et_dog_join_month.setText(month)
+                et_dog_join_day.setText(day)
+            }
+        } else {
+            val today = LocalDate.now() // 현재 날짜를 가져옵니다.
+            et_dog_join_year.hint ="년("+today.year.toString()+")"
+            et_dog_join_month.hint = "월("+today.monthValue.toString()+")"
+            et_dog_join_day.hint = "일("+today.dayOfMonth.toString()+")"
+        }
+
+
         val et_dog_join_breed : EditText = findViewById(R.id.et_dog_join_breed)
+        et_dog_join_breed.setText(species)
         val et_dog_join_weight : EditText = findViewById(R.id.et_dog_join_weight)
+        // TODO : DB에서 무게 데이터를 가져와서 저장한다.
+        var weight : Int = 0
+        et_dog_join_weight.setText(weight)
         val radio_dog_join_man : RadioButton = findViewById(R.id.radio_dog_join_man)
         val radio_dog_join_woman : RadioButton = findViewById(R.id.radio_dog_join_woman)
         val radio_dog_join_reuter : RadioButton = findViewById(R.id.radio_dog_join_reuter)
@@ -89,9 +128,26 @@ class DogJoinActivity : AppCompatActivity() {
         btn_dog_join_save.setOnClickListener {
             // TODO : 수정 또는 등록하는 경우 모든 데이터를 입력해야한다.
             // TODO : 입력하지 않은 경우 데이터를 등록 또는 수정하기 실패
-
-
+            name = et_dog_join_name.text.toString()
+            var year = et_dog_join_year.text.toString()
+            var month = et_dog_join_month.text.toString()
+            var day = et_dog_join_day.text.toString()
+            val birthday = year + "-" +month + "-"+day + "-"
+            weight = et_dog_join_weight.text.toString().toInt()
+            //종
+            species = et_dog_join_breed.text.toString()
+            if(radio_dog_join_man.isChecked == true){
+                gender = "남"
+            }else{
+                gender = "여"
+            }
+            if(radio_dog_join_reuter.isChecked == true){
+                neutered = "O"
+            }else{
+                neutered = "X"
+            }
             // TODO : 등록 성공인 경우 DB에 저장
+            // 처음 등록? , 업데이트 구분?
         }
 
     }
