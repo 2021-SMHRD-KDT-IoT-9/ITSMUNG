@@ -5,16 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-class DogJoinActivity : AppCompatActivity() {
+class Devicectivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dog_join)
+        setContentView(R.layout.activity_devicectivity2)
 
-        val btn_dog_join_save : Button = findViewById(R.id.btn_dog_join_save)
+        val btn_device : Button = findViewById(R.id.btn_device)
 
-        btn_dog_join_save.setOnClickListener {
-            val intent = Intent(this@DogJoinActivity,
-                MainActivity::class.java)
+        btn_device.setOnClickListener {
+            val intent = Intent(this@Devicectivity2,
+                DevicewifiActivity::class.java)
             startActivity(intent)
         }
     }
