@@ -21,7 +21,7 @@ class DogJoinActivity : AppCompatActivity() {
         val et_dog_join_name : EditText = findViewById(R.id.et_dog_join_name)
         // TODO : 생년월일 사용자가 전부 입력하도록!  --> datePicker
         // TODO : 생년월일을 DB에서 가져온다.
-        val et_dog_join_birthday : EditText = findViewById(R.id.et_dog_join_birthday)
+        //val et_dog_join_birthday : EditText = findViewById(R.id.et_dog_join_birthday)
         val et_dog_join_breed : EditText = findViewById(R.id.et_dog_join_breed)
         val et_dog_join_weight : EditText = findViewById(R.id.et_dog_join_weight)
         val radio_dog_join_man : RadioButton = findViewById(R.id.radio_dog_join_man)
