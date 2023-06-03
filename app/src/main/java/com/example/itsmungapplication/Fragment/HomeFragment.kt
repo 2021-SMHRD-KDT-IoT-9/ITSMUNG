@@ -1,5 +1,6 @@
 package com.example.itsmungapplication.Fragment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -29,6 +30,11 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        // 내부에 저장된 user_id(DB에서 가져오기용)
+        val sharedPreferences = requireContext().getSharedPreferences("my_app", Context.MODE_PRIVATE)
+        val userId = sharedPreferences.getString("user_id", null)
+
 
         val btn_home_dogstool: Button = view.findViewById(R.id.btn_home_dogstool)
         val btn_home_dogpea: Button = view.findViewById(R.id.btn_home_dogpea)

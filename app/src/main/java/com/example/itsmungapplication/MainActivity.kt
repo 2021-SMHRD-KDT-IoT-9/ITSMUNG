@@ -1,5 +1,6 @@
 package com.example.itsmungapplication
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
@@ -14,6 +15,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // 내부에 저장된 user_id(DB에서 가져오기용)
+        val sharedPreferences = getSharedPreferences("my_app", Context.MODE_PRIVATE)
+        val userId = sharedPreferences.getString("user_id", null)
+        
+        
+
         val bnv : BottomNavigationView = findViewById(R.id.bnv)
         val fl : FrameLayout = findViewById(R.id.fl)
         val destination = intent.getStringExtra("destination")
@@ -26,7 +33,8 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
         // 전문가 서비스를 구독했는지 안했는지 파악합니다.
-        val matching: Boolean = false
+        // TODO : @김국현 DB 매칭 확인
+        val matching: Boolean = true
 
         if (matching) {
             bnv.menu.clear()  // 기존 메뉴 삭제

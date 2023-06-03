@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import com.example.itsmungapplication.Fragment.MypageFragment
+import org.w3c.dom.Text
 
 class UserInfoActivity : AppCompatActivity() {
     private lateinit var et_user_info_pw : EditText
@@ -17,7 +19,7 @@ class UserInfoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_info)
-
+        val tv_user_info : TextView = findViewById(R.id.tv_user_info_id)
         et_user_info_pw = findViewById(R.id.et_user_info_pw)
         et_user_info_nick = findViewById(R.id.et_user_info_nick)
         et_user_info_tel = findViewById(R.id.et_user_info_tel)
