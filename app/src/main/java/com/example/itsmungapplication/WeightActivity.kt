@@ -86,7 +86,7 @@ class WeightActivity : AppCompatActivity() {
         val rightYAxis: YAxis = chart.axisRight
         val leftYAxis: YAxis = chart.axisLeft
         rightYAxis.isEnabled = false
-        leftYAxis.isEnabled = false
+//        leftYAxis.isEnabled = false
 
 
         // 데이터 생성
@@ -125,7 +125,11 @@ class WeightActivity : AppCompatActivity() {
         // X축 스크롤 제한 설정
         chart.setVisibleXRangeMaximum(6f) // 7일치 데이터만 표시
         chart.moveViewToX(entries.size.toFloat() - 1) // 최근 데이터로 스크롤
-
+        // 그래프 그리드 설정
+        chart.xAxis.setDrawGridLines(true)
+        chart.xAxis.gridColor = Color.LTGRAY
+        chart.axisLeft.setDrawGridLines(true)
+        chart.axisLeft.gridColor = Color.LTGRAY
         // 그래프 업데이트
         chart.invalidate()
     }
