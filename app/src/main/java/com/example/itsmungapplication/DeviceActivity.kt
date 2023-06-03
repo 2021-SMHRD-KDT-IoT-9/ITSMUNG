@@ -14,7 +14,7 @@ class DeviceActivity : AppCompatActivity() {
 
         btn_device.setOnClickListener {
             val intent = Intent(this@DeviceActivity,
-                DevicewifiActivity::class.java)
+                MainActivity::class.java)
             startActivity(intent)
         }
     }
