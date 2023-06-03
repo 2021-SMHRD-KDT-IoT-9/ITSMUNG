@@ -100,7 +100,7 @@ class DogJoinActivity : AppCompatActivity() {
         val et_dog_join_weight : EditText = findViewById(R.id.et_dog_join_weight)
         // TODO : DB에서 무게 데이터를 가져와서 저장한다.
 //           데이터가 없는 경우 0 값을 입력한다.
-        var weight : Int = 0
+        var weight : Float = 0f
 
         et_dog_join_weight.setText(weight.toString())
         val radio_dog_join_man : RadioButton = findViewById(R.id.radio_dog_join_man)
@@ -171,7 +171,7 @@ class DogJoinActivity : AppCompatActivity() {
             var month = et_dog_join_month.text.toString()
             var day = et_dog_join_day.text.toString()
             var birthday = year + "-" +month + "-"+day + "-"
-            weight = et_dog_join_weight.text.toString().toInt()
+            weight = et_dog_join_weight.text.toString().toFloat()
             //종
             species = et_dog_join_breed.text.toString()
             if(radio_dog_join_man.isChecked == true){
