@@ -42,6 +42,15 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    implementation "com.kakao.sdk:v2-all:2.14.0" // 전체 모듈 설치, 2.11.0 버전부터 지원
+    implementation "com.kakao.sdk:v2-user:2.14.0" // 카카오 로그인
+    implementation "com.kakao.sdk:v2-talk:2.14.0" // 친구, 메시지(카카오톡)
+    implementation "com.kakao.sdk:v2-story:2.14.0" // 카카오스토리
+    implementation "com.kakao.sdk:v2-share:2.14.0" // 메시지(카카오톡 공유)
+    implementation "com.kakao.sdk:v2-navi:2.14.0" // 카카오내비
+    implementation "com.kakao.sdk:v2-friend:2.14.0" // 카카오톡 소셜 피커, 리소스 번들 파일 포함
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
