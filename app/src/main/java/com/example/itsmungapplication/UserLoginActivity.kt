@@ -23,6 +23,7 @@ class UserLoginActivity : AppCompatActivity() {
 
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: Editor
+
     // TAG for kakaoLogin
     private val mCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
         if (error != null) {
@@ -71,6 +72,9 @@ class UserLoginActivity : AppCompatActivity() {
 
 
             // test 예시
+            //UserControl을 만들어 아이디아 비밀번호가 있는지 확인한다.
+            //val UserVO : UserVO = UserVO()
+            //UserVO.userId, User.userpw사용
              if(id == "test" && pw == "1234") {
                  // 사용자가 로그인 아이디를 저
 
