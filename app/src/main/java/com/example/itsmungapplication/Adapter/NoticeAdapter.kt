@@ -11,9 +11,9 @@ import com.example.itsmungapplication.R
 class NoticeAdapter () :
     RecyclerView.Adapter<NoticeAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var itemimage: ImageView = itemView.findViewById(R.id.img_notice)
-        var itemtitle: TextView = itemView.findViewById(R.id.tv_notice_title)
-        var itemdetail: TextView = itemView.findViewById(R.id.tv_notice_content)
+        var img_notice: ImageView = itemView.findViewById(R.id.img_notice)
+        var tv_notice_title: TextView = itemView.findViewById(R.id.tv_notice_title)
+        var tv_notice_content: TextView = itemView.findViewById(R.id.tv_notice_content)
     }
 
     // 한 칸에 들어갈 디자인을 infalte작업을 한 후에 ViewHolder클래스로
@@ -28,9 +28,9 @@ class NoticeAdapter () :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemimage.setImageResource(R.drawable.check)
-        holder.itemtitle.setText("시스템 정기 점검 안내")
-        holder.itemdetail.setText(" 금주 주말에 시스템 정기 정검이 있습니다. \n 작업 시간 동안 시스템 접속이 원활하지 않을 수 있습니다.")
+        holder.img_notice.setImageResource(R.drawable.check)
+        holder.tv_notice_title.setText("시스템 정기 점검 안내")
+        holder.tv_notice_content.setText(" 금주 주말에 시스템 정기 정검이 있습니다. \n 작업 시간 동안 시스템 접속이 \n 원활하지 않을 수 있습니다.")
     }
 
 
