@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +18,8 @@ import com.example.itsmungapplication.R
 import com.example.itsmungapplication.StateActivity
 import com.example.itsmungapplication.UserInfoActivity
 import com.example.itsmungapplication.UserLoginActivity
-
+import com.kakao.sdk.user.UserApiClient
+import android.content.ContentValues.TAG
 class MypageFragment : Fragment() {
 
     private lateinit var sharedPreferences: SharedPreferences
@@ -59,7 +61,7 @@ class MypageFragment : Fragment() {
         var tel : String = "010-1234-5678"
         tv_mypage_userTel.setText(tel)
         // 카카오 어떻게 아이디를 보여줄 것인가? 정말 연계된 아이디를 보여줄 것인가?
-        tv_mypage_userAccount.setText("카카오 연결")
+        tv_mypage_userAccount.setText("")
 
 
 
@@ -75,7 +77,16 @@ class MypageFragment : Fragment() {
             editor.putBoolean("isLoggedIn", false)
             editor.remove("lastLoginTime")
             editor.apply()
-
+            // 로그아웃
+            // kakao SDK 삭제
+            UserApiClient.instance.logout { error ->
+                if (error != null) {
+                    Log.e(TAG, "로그아웃 실패. SDK에서 토큰 삭제됨", error)
+                }
+                else {
+                    Log.i(TAG, "로그아웃 성공. SDK에서 토큰 삭제됨")
+                }
+            }
 
             val intent = Intent(activity,UserLoginActivity::class.java)
             startActivity(intent)
