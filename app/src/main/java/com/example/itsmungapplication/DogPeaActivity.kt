@@ -1,5 +1,6 @@
 package com.example.itsmungapplication
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.CalendarView
@@ -9,6 +10,10 @@ class DogPeaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dog_pea)
+
+        // 내부에 저장된 user_id(DB에서 가져오기용)
+        val sharedPreferences = getSharedPreferences("my_app", Context.MODE_PRIVATE)
+        val userId = sharedPreferences.getString("user_id", null)
 
         val tv_dogpea : TextView = findViewById(R.id.tv_dogpea)
         val cal_dogpea : CalendarView = findViewById(R.id.cal_dogpea)

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/neuter"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     tools:context=".DogJoinActivity">
 
@@ -39,17 +39,15 @@
         android:id="@+id/btn_dog_join_save"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginEnd="109dp"
+        android:layout_marginBottom="64dp"
         android:backgroundTint="@color/btncolor"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="저 장 하 기"
         android:textColor="@color/zete"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline22"
-        app:layout_constraintEnd_toStartOf="@+id/guideline24"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline18" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline24" />
 
     <TextView
         android:id="@+id/textView13"
@@ -101,8 +99,8 @@
 
     <EditText
         android:id="@+id/et_dog_join_name"
-        android:layout_width="254dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:fontFamily="@font/im_hyemin_bold"
@@ -110,19 +108,21 @@
         android:inputType="text"
         android:textColor="@color/zete"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
-        app:layout_constraintStart_toStartOf="@+id/guideline18"
+        app:layout_constraintHorizontal_bias="0.653"
+        app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/img_dog_join" />
 
     <EditText
         android:id="@+id/et_dog_join_year"
-        android:layout_width="72dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:ems="10"
         android:fontFamily="@font/im_hyemin_bold"
-        android:hint="2023년"
+        android:hint="년(2023)"
         android:inputType="text"
         android:textColor="@color/zete"
-        app:layout_constraintStart_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/et_dog_join_name" />
 
     <TextView
@@ -140,12 +140,13 @@
         android:id="@+id/et_dog_join_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:ems="10"
         android:fontFamily="@font/im_hyemin_bold"
         android:hint="예) 3.23 "
         android:inputType="text"
         android:textColor="@color/zete"
-        app:layout_constraintStart_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toEndOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/et_dog_join_year" />
 
     <TextView
@@ -164,11 +165,12 @@
         android:id="@+id/radio_dog_join_man"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="남아 ♂"
         android:textColor="@color/zete"
-        app:layout_constraintStart_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toEndOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/et_dog_join_breed" />
 
     <TextView
@@ -194,41 +196,42 @@
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
 
-    <RadioButton
-        android:id="@+id/radio_dog_join_reuter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="유"
-        android:textColor="@color/zete"
-        app:layout_constraintStart_toStartOf="@+id/guideline18"
-        app:layout_constraintTop_toBottomOf="@+id/radio_dog_join_man" />
+        <RadioButton
+            android:id="@+id/radio_dog_join_reuter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/im_hyemin_bold"
+            android:text="유"
+            android:textColor="@color/zete"
+            app:layout_constraintStart_toEndOf="@+id/textView21"
+            app:layout_constraintTop_toBottomOf="@+id/radio_dog_join_man" />
 
-    <RadioButton
-        android:id="@+id/radio_dog_join_nonereuter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/im_hyemin_bold"
-        android:text="무"
-        android:textColor="@color/zete"
-        app:layout_constraintBottom_toBottomOf="@+id/radio_dog_join_reuter"
-        app:layout_constraintStart_toEndOf="@+id/radio_dog_join_reuter"
-        app:layout_constraintTop_toBottomOf="@+id/radio_dog_join_woman" />
+        <RadioButton
+            android:id="@+id/radio_dog_join_nonereuter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/im_hyemin_bold"
+            android:text="무"
+            android:textColor="@color/zete"
+            app:layout_constraintEnd_toStartOf="@+id/guideline24"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toEndOf="@+id/radio_dog_join_reuter"
+            app:layout_constraintTop_toBottomOf="@+id/radio_dog_join_woman" />
 
 
     <RadioButton
         android:id="@+id/radio_dog_join_woman"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="여아 ♀"
         android:textColor="@color/zete"
-        app:layout_constraintBottom_toBottomOf="@+id/radio_dog_join_man"
+        app:layout_constraintEnd_toStartOf="@+id/guideline24"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toEndOf="@+id/radio_dog_join_man"
         app:layout_constraintTop_toBottomOf="@+id/et_dog_join_breed" />
 
@@ -252,7 +255,7 @@
 
     <EditText
         android:id="@+id/et_dog_join_breed"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/im_hyemin_bold"
@@ -260,16 +263,17 @@
         android:inputType="text"
         android:textColor="@color/zete"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
-        app:layout_constraintStart_toStartOf="@+id/guideline18"
+        app:layout_constraintHorizontal_bias="0.693"
+        app:layout_constraintStart_toEndOf="@+id/textView22"
         app:layout_constraintTop_toBottomOf="@+id/et_dog_join_weight" />
 
     <EditText
         android:id="@+id/et_dog_join_month"
-        android:layout_width="43dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/im_hyemin_bold"
-        android:hint="5월"
+        android:hint="월(05)"
         android:inputType="text"
         android:textColor="@color/zete"
         app:layout_constraintBottom_toBottomOf="@+id/et_dog_join_year"
@@ -279,22 +283,15 @@
 
     <EditText
         android:id="@+id/et_dog_join_day"
-        android:layout_width="46dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/im_hyemin_bold"
-        android:hint="25일"
+        android:hint="일(25)"
         android:inputType="text"
         android:textColor="@color/zete"
         app:layout_constraintBottom_toBottomOf="@+id/et_dog_join_month"
         app:layout_constraintStart_toEndOf="@+id/et_dog_join_month"
         app:layout_constraintTop_toTopOf="@+id/et_dog_join_month" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline56"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
