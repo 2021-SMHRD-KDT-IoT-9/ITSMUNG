@@ -116,18 +116,18 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/imgbtn_mypage_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="230dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/alarm1"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton8"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtn_mypage_notice"
         app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/imgbtn_mypage_notice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"

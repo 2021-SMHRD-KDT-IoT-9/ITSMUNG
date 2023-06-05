@@ -9,9 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.itsmungapplication.NoticeActivity
 import com.example.itsmungapplication.R
+import com.example.itsmungapplication.StateActivity
 import com.example.itsmungapplication.UserInfoActivity
 import com.example.itsmungapplication.UserLoginActivity
 
@@ -35,6 +38,8 @@ class MypageFragment : Fragment() {
 
         val btn_mypage_change: Button = view.findViewById(R.id.btn_mypage_change)
         val btn_mypage_logout : Button = view.findViewById(R.id.btn_mypage_logout)
+        val imgbtn_mypage_state : ImageButton = view.findViewById(R.id.imgbtn_mypage_state)
+        val imgbtn_mypage_notice : ImageButton = view.findViewById((R.id.imgbtn_mypage_notice))
         // 반려견 이름
         val tv_mypage_dogUserName : TextView = view.findViewById(R.id.tv_mypage_dogusername)
         val tv_mypage_userName : TextView = view.findViewById(R.id.tv_mypage_username)
@@ -63,10 +68,7 @@ class MypageFragment : Fragment() {
             val intent = Intent(activity, UserInfoActivity::class.java)
             startActivity(intent)
         }
-        
-        
-        
-        
+
         // Logout 을 위한 기능
         btn_mypage_logout.setOnClickListener {
             // Logout 을 위한 기능
@@ -79,6 +81,19 @@ class MypageFragment : Fragment() {
             startActivity(intent)
             activity?.finish()
         }
+
+        // state (강아지 상태)알림 페이지로 전환
+        imgbtn_mypage_state.setOnClickListener {
+            val intent = Intent(activity,StateActivity::class.java)
+            startActivity(intent)
+        }
+
+        // notice (공지사항) 알림 페이지로 전환
+        imgbtn_mypage_notice.setOnClickListener {
+            val intent = Intent(activity,NoticeActivity::class.java)
+            startActivity(intent)
+        }
+
 
         return view
     }
