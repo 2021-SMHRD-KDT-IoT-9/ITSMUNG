@@ -29,7 +29,13 @@ class UserJoinActivity : AppCompatActivity() {
             var name = et_user_join_name.text.toString()
             var nick = et_user_join_nick.text.toString()
             var tel = et_user_join_tel.text.toString()
-
+            val UserVO = UserVO()
+            UserVO.userId = email
+            UserVO.userPw = pw
+            UserVO.userName = name
+            UserVO.nickname = nick
+            UserVO.userTel = tel
+            // TODO : UserVO를 활용하여 DB에 저장하는 controler 생성
 
             // TODO: DB에 회원정보가 저장이 성공되었는지 확인을 한 후 로그인 페이지로 이동합니다.
             // 예시
