@@ -72,15 +72,15 @@ class UserLoginActivity : AppCompatActivity() {
                                             "\n이메일: ${user.kakaoAccount?.email}")
                                     // TODO : DB 체크를 필요합니다.
                                     //  카카오 등록이 된 이메일이 있는지 확인합니다.
-                                    var DBKakaoCheck : Boolean = true
+                                    var DBKakaoCheck : Boolean = false
                                     if(DBKakaoCheck){
-                                        startMainActivity()
-                                        editor.putString("user_id", "${user.id}") // "user_id"라는 키에 아이디를 저장
+                                        editor.putString("user_id", "${user.kakaoAccount?.email}") // "user_id"라는 키에 아이디를 저장
                                         editor.putBoolean("isLoggedIn", true)
                                         editor.putLong("lastLoginTime", System.currentTimeMillis()) // 사용자가 로그인한 시간을 저장
                                         editor.apply()
+                                        startMainActivity()
                                     }else{
-                                        startUserJoinActivity()
+                                        startUserJoinActivity(user.kakaoAccount?.email.toString())
                                     }
                                 }
                             }
@@ -229,15 +229,18 @@ class UserLoginActivity : AppCompatActivity() {
                                                             "\n이메일: ${user.kakaoAccount?.email}")
                                                     // TODO : DB 체크를 필요합니다.
                                                     //  카카오 등록이 된 이메일이 있는지 확인합니다.
-                                                    var DBKakaoCheck : Boolean = true
+                                                    var DBKakaoCheck : Boolean = false
                                                     if(DBKakaoCheck){
-                                                        startMainActivity()
-                                                        editor.putString("user_id", "${user.id}") // "user_id"라는 키에 아이디를 저장
+                                                        editor.putString("user_id", "${user.kakaoAccount?.email}") // "user_id"라는 키에 아이디를 저장
                                                         editor.putBoolean("isLoggedIn", true)
                                                         editor.putLong("lastLoginTime", System.currentTimeMillis()) // 사용자가 로그인한 시간을 저장
                                                         editor.apply()
+                                                        startMainActivity()
+
                                                     }else{
-                                                        startUserJoinActivity()
+                                                        // 카카오로 로그인을 시도했으나 DB의 없는 경우
+                                                        // 바로 연결을 위한
+                                                        startUserJoinActivity(user.kakaoAccount?.email.toString() )
                                                     }
                                                 }
                                             }
@@ -256,8 +259,10 @@ class UserLoginActivity : AppCompatActivity() {
         }
 
     }
-    private fun startUserJoinActivity() {
+    private fun startUserJoinActivity(email: String) {
         val intent = Intent(this@UserLoginActivity, UserJoinActivity::class.java)
+        intent.putExtra("kakaoTry", true)
+        intent.putExtra("kakaoUserId", email)
         startActivity(intent)
     }
     private fun startMainActivity() {

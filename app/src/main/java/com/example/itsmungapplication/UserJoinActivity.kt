@@ -19,7 +19,9 @@ class UserJoinActivity : AppCompatActivity() {
         val et_user_join_nick : EditText = findViewById(R.id.et_user_join_nick)
         val et_user_join_tel : EditText = findViewById(R.id.et_user_join_tel)
         val btn_user_join_sign : Button = findViewById(R.id.btn_user_join_sign)
-
+        if(intent.getBooleanExtra("kakaoTry",false)){
+            et_user_join_email.setText(intent.getStringExtra("kakaoUserId"))
+        }
         btn_user_join_sign.setOnClickListener {
             // TODO: 230602 이영재
             //  Join으로 위에서 얻는 데이터를 가져오고 DB에 저장하는 기능 추가 필요
@@ -42,6 +44,10 @@ class UserJoinActivity : AppCompatActivity() {
             var success : Boolean = true
             if(success) {
                 val intent = Intent(this@UserJoinActivity, UserLoginActivity::class.java)
+                if(intent.getBooleanExtra("kakaoTry",false)){
+                    // TODO : kakao에 연계도 등록합니다. 시간도 등록한다.
+                    UserVO.kakaoEmail = email
+                }
                 startActivity(intent)
                 Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show()
                 finish()
