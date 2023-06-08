@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -28,7 +28,6 @@
         app:cardElevation="5dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toStartOf="@+id/guideline57"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline56"
         app:layout_constraintTop_toTopOf="parent">
 

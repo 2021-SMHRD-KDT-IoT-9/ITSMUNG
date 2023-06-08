@@ -15,15 +15,18 @@ class StateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_state)
 
-        viewManager = LinearLayoutManager(this)
-        viewAdapter = StateAdapter()
+        val rcv_state : RecyclerView = findViewById(R.id.rcv_state)
 
-        recyclerView = findViewById<RecyclerView>(R.id.rcv_state).apply {
-            setHasFixedSize(true)
-            layoutManager = viewManager
-            adapter = viewAdapter
+        var alarm: MutableList<AlarmVO> = mutableListOf()
+//        alarm.add(AlarmVO(R.drawable.pawprint, "대변에 이상이 보입니다."," 딱딱한 토끼 똥 형태 : 변비 \n 빨간색 변 : 항문 질병 및 위장 출혈의 의심됩니다. \n 병원 내원을 추천합니다."))
 
-        }
+        // 4. Adapter : ViewHolder패턴 파일만 만들고 먼저 지정해주기
+        val adapter = StateAdapter(applicationContext, R.layout.card_layout_state, alarm )
+        // 화면에 어떻게 나오게 할건지(가로,세로 / )
+        rcv_state.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+        rcv_state.adapter = adapter
+
+
 
     }
 }

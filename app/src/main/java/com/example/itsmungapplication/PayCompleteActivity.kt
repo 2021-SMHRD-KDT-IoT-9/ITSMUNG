@@ -17,12 +17,7 @@ class PayCompleteActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             intent.putExtra("destination", "home")
-
-
-            // matching 상태를 파악한다.
             intent.putExtra("Matching", true)
-
-
             startActivity(intent)
             finish()
         }

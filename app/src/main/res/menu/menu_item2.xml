@@ -7,10 +7,10 @@
         android:title="Home" />
 
 
-    <item
+<!--    <item
         android:id="@+id/tab2"
         android:icon="@drawable/repair1"
-        android:title="Device" />
+        android:title="Device" />-->
     <item
         android:id="@+id/tab3"
         android:icon="@drawable/care6"
