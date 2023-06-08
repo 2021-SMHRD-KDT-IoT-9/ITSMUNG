@@ -34,14 +34,14 @@ class MainActivity : AppCompatActivity() {
         }
         // 전문가 서비스를 구독했는지 안했는지 파악합니다.
         // TODO : @김국현 DB 매칭 확인
-        val matching: Boolean = true
+        val matching: Boolean = intent.getBooleanExtra("Matching",false)
 
         if (matching) {
             bnv.menu.clear()  // 기존 메뉴 삭제
-            bnv.inflateMenu(R.menu.menu_item2)  // menu_item.xml 메뉴 적용
+            bnv.inflateMenu(R.menu.menu_item2)  // menu_item2.xml 메뉴 적용
         } else {
             bnv.menu.clear()  // 기존 메뉴 삭제
-            bnv.inflateMenu(R.menu.menu_item)  // menu_item2.xml 메뉴 적용
+            bnv.inflateMenu(R.menu.menu_item)  // menu_item.xml 메뉴 적용
         }
         supportFragmentManager.beginTransaction().replace(
             R.id.fl,
@@ -58,12 +58,12 @@ class MainActivity : AppCompatActivity() {
                             HomeFragment()
                         ).commit()
                 }
-                R.id.tab2->{ // 기기관리
+                /*R.id.tab2->{ // 기기관리
                         supportFragmentManager.beginTransaction().replace(
                             R.id.fl,
                             DeviceFragment()
                         ).commit()
-                }
+                }*/
                 R.id.tab3->{ // 전문가 페이지
 //                        supportFragmentManager.beginTransaction().replace(
 //                            R.id.fl,
