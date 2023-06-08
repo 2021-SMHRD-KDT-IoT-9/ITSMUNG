@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         }
         // 전문가 서비스를 구독했는지 안했는지 파악합니다.
         // TODO : @김국현 DB 매칭 확인
-        val matching: Boolean = true
+        val matching: Boolean = intent.getBooleanExtra("Matching",false)
 
         if (matching) {
             bnv.menu.clear()  // 기존 메뉴 삭제
