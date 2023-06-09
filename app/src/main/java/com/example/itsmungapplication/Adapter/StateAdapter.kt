@@ -17,7 +17,6 @@ class StateAdapter(context:Context, layout: Int, alram:MutableList<AlarmVO> ):
     val layout = layout
     val alram = alram
 
-    val inflater = LayoutInflater.from(context)
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var img_state: ImageView = itemView.findViewById(R.id.img_state)
@@ -28,7 +27,7 @@ class StateAdapter(context:Context, layout: Int, alram:MutableList<AlarmVO> ):
     // 한 칸에 들어갈 디자인
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): StateAdapter.ViewHolder {
-        val cardView = LayoutInflater.from(parent.context)
+        val cardView = LayoutInflater.from(context)
             .inflate(R.layout.card_layout_state, parent, false)
 
         return ViewHolder(cardView)
@@ -36,11 +35,11 @@ class StateAdapter(context:Context, layout: Int, alram:MutableList<AlarmVO> ):
 
     override fun onBindViewHolder(holder: StateAdapter.ViewHolder, position: Int) {
         holder.img_state.setImageResource(R.drawable.pawprint)
-        holder.tv_state_title.setText("대변에 이상이 보입니다.")
-        holder.tv_state_content.setText(" 딱딱한 토끼 똥 형태 : 변비 \n 빨간색 변 : 항문 질병 및 위장 출혈의 의심됩니다. \n 병원 내원을 추천합니다.")
+        holder.tv_state_title.text= alram[position].alarmId
+        holder.tv_state_content.text = alram[position].content
     }
 
     override fun getItemCount(): Int {
-        return 5
+        return alram.size
     }
 }

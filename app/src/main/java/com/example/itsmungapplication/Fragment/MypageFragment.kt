@@ -95,6 +95,7 @@ class MypageFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_mypage, container, false)
 
+
         val btn_mypage_change: Button = view.findViewById(R.id.btn_mypage_change)
         val btn_mypage_logout : Button = view.findViewById(R.id.btn_mypage_logout)
         val imgbtn_mypage_state : ImageButton = view.findViewById(R.id.imgbtn_mypage_state)

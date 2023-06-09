@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.fragment.app.FragmentTransaction
-import com.example.itsmungapplication.Fragment.DeviceFragment
+import com.example.itsmungapplication.Fragment.ExpertFragment
 import com.example.itsmungapplication.Fragment.HomeFragment
 import com.example.itsmungapplication.Fragment.MypageFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -65,11 +65,11 @@ class MainActivity : AppCompatActivity() {
                         ).commit()
                 }*/
                 R.id.tab3->{ // 전문가 페이지
-//                        supportFragmentManager.beginTransaction().replace(
-//                            R.id.fl,
-//                            ExpertFragment()
-//                        ).commit()
-//                    // do
+                        supportFragmentManager.beginTransaction().replace(
+                            R.id.fl,
+                            ExpertFragment()
+                        ).commit()
+                    // do
                 }
                 R.id.tab4->{ // 마이 페이지
                     supportFragmentManager.beginTransaction().replace(
