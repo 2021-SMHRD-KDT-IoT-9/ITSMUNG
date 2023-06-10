@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".DoctorrInfoActivity">
 
+    <FrameLayout
+        android:id="@+id/fl_doctor_info_mypage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
@@ -59,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView32"
+        android:id="@+id/tv_doctor_info_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -80,8 +91,8 @@
         android:fontFamily="@font/im_hyemin_bold"
         android:text="PW"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="@+id/textView32"
-        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+        app:layout_constraintStart_toStartOf="@+id/tv_doctor_info_email"
+        app:layout_constraintTop_toBottomOf="@+id/tv_doctor_info_email" />
 
     <EditText
         android:id="@+id/et_doctor_info_pw"
@@ -107,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_doctor_info_pw" />
 
     <TextView
-        android:id="@+id/textView36"
+        android:id="@+id/tv_doctor_info_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -127,12 +138,12 @@
         android:layout_marginTop="30dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="License number"
-        app:layout_constraintEnd_toEndOf="@+id/textView36"
-        app:layout_constraintStart_toStartOf="@+id/textView36"
-        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_doctor_info_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_doctor_info_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_doctor_info_name" />
 
     <TextView
-        android:id="@+id/textView38"
+        android:id="@+id/tv_doctor_info_license"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -152,9 +163,9 @@
         android:layout_marginTop="30dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="Tel"
-        app:layout_constraintEnd_toEndOf="@+id/textView38"
-        app:layout_constraintStart_toStartOf="@+id/textView38"
-        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_doctor_info_license"
+        app:layout_constraintStart_toStartOf="@+id/tv_doctor_info_license"
+        app:layout_constraintTop_toBottomOf="@+id/tv_doctor_info_license" />
 
     <EditText
         android:id="@+id/et_doctor_info_tel"

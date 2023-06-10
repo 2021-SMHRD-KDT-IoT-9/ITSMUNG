@@ -1,11 +1,105 @@
 package com.example.itsmungapplication
 
+import android.content.ContentValues
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
+import android.content.SharedPreferences.Editor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 
 class DoctorLoginActivity : AppCompatActivity() {
+
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: Editor
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctor_login)
+
+        val et_id: EditText = findViewById(R.id.et_doctor_login_id)
+        val et_pw: EditText = findViewById(R.id.et_doctor_login_pw)
+        val btn_login: Button = findViewById(R.id.btn_doctor_login_login)
+
+        // 사용자의 로그인 상태를 저장하기 위한 값입니다.
+        // 모바일 내부에 파일 형태로 저장합니다.
+        sharedPreferences = getSharedPreferences("my_app", Context.MODE_PRIVATE)
+        editor = sharedPreferences.edit()
+        // 사용자 로그인 상태 확인 및 처리
+        checkLoginStatus()
+
+        // Login
+        btn_login.setOnClickListener {
+            var id : String = et_id.text.toString()
+            var pw : String = et_pw.text.toString()
+
+            // TODO: DB에 회원 id와  비밀번호를 확인합니다.
+            // TODO: select 해서 가져오는 값이 있는 경우 true를 반환합니다. 없는 경우 로그인에 실패합니다.
+
+            // test
+            //DoctorControl을 만들어 아이디아 비밀번호가 있는지 확인한다.
+            //val DoctorVO : DoctorVO = DoctorVO()
+            //DoctorVO.DoctorId, Doctor.Doctorpw사용
+            if(id == "test" && pw == "1234") {
+                // 사용자가 로그인 아이디를 저장
+                editor.putString("doctor_id", id) // "doctor_id"라는 키에 아이디를 저장
+                editor.putBoolean("isLoggedIn", true)
+                editor.putLong("lastLoginTime", System.currentTimeMillis()) // 사용자가 로그인한 시간을 저장
+                editor.apply()
+
+                val intent = Intent(
+                    this@DoctorLoginActivity,
+                    MainActivity::class.java
+                )
+                startMainActivity()
+                Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+                // 이동하고 stack 삭제
+                finish()
+            }else{
+                et_id.setText("")
+                et_pw.setText("")
+                startDoctorJoinActivity()
+                Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
+            }
+
+
+        }
+    }
+
+    private fun startDoctorJoinActivity() {
+        val intent = Intent(this@DoctorLoginActivity, DoctorJoinActivity::class.java)
+        startActivity(intent)
+    }
+    private fun startMainActivity() {
+        val intent = Intent(this@DoctorLoginActivity, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    // login check 함수
+    private fun checkLoginStatus() {
+
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+        val lastLoginTime = sharedPreferences.getLong("lastLoginTime", 0)
+
+        if (isLoggedIn) {
+            val currentTime = System.currentTimeMillis()
+            val elapsedTime = currentTime - lastLoginTime
+            val sevenDaysInMillis = 7 * 24 * 60 * 60 * 1000 // 7일을 밀리초로 변환
+
+            if (elapsedTime > sevenDaysInMillis) {
+                // 사용자가 7일 동안 로그인하지 않은 경우, 로그인 정보 삭제
+                editor.putBoolean("isLoggedIn", false)
+                editor.remove("lastLoginTime")
+                editor.apply()
+            } else {
+                // 사용자가 7일 이내에 로그인한 경우, 메인 화면으로 이동
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+        }
     }
 }

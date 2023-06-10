@@ -23,8 +23,7 @@
             android:exported="true" />
         <activity
             android:name=".DoctorLoginActivity"
-            android:exported="true">
-
+            android:exported="false">
         </activity>
         <activity
             android:name=".DoctorJoinActivity"
