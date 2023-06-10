@@ -28,13 +28,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:text="오전 10:23"
+        android:text="오후 13:23"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_chat_message"
         app:layout_constraintEnd_toStartOf="@+id/tv_chat_message"
         app:layout_constraintTop_toTopOf="@+id/tv_chat_message"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.988" />
 
     <TextView
         android:id="@+id/tv_chat_isShown"
