@@ -44,10 +44,10 @@ class DoctorMainFragment : Fragment() {
                 val year = parts[0].toInt()
                 val month = parts[1].toInt()
                 val day = parts[2].toInt()
-                val today = LocalDate.now() // 현재 날짜를 가져옵니다.
-                if(dog_age != null || dog_age != 0){
-                    dog_age = today.year - year - if (today.monthValue < month || (today.monthValue == month && today.dayOfMonth < day)) 1 else 0
-                }
+//                val today = LocalDate.now() // 현재 날짜를 가져옵니다.
+//                if(dog_age != null || dog_age != 0){
+//                    dog_age = today.year - year - if (today.monthValue < month || (today.monthValue == month && today.dayOfMonth < day)) 1 else 0
+//                }
             }
         }
         // 견종
