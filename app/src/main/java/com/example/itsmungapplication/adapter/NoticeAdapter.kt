@@ -1,4 +1,4 @@
-package com.example.itsmungapplication.Adapter
+package com.example.itsmungapplication.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.itsmungapplication.NoticeVO
+import com.example.itsmungapplication.vo.NoticeVO
 import com.example.itsmungapplication.R
 
 class NoticeAdapter (context: Context, layout: Int, chatlist: MutableList<NoticeVO>) :

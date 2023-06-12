@@ -6,8 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import com.example.itsmungapplication.Fragment.MypageFragment
-import org.w3c.dom.Text
+import com.example.itsmungapplication.fragment.MypageFragment
 
 class UserInfoActivity : AppCompatActivity() {
     private lateinit var et_user_info_pw : EditText

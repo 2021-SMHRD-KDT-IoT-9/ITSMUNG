@@ -1,4 +1,4 @@
-package com.example.itsmungapplication
+package com.example.itsmungapplication.vo
 
 data class DogLogVO(
     var logId: String? = "",

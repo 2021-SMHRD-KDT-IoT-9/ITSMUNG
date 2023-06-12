@@ -17,8 +17,9 @@
         android:usesPermissionFlags="neverForLocation" />
 
     <application
-        android:name=".KakaoLoginApi"
+        android:name=".api.KakaoLoginApi"
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"

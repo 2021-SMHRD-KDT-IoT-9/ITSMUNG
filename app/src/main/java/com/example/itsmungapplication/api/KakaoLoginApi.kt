@@ -1,4 +1,4 @@
-package com.example.itsmungapplication
+package com.example.itsmungapplication.api
 
 import android.app.Application
 import com.kakao.sdk.common.KakaoSdk
