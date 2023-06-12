@@ -13,7 +13,7 @@ interface ApiService {
     fun join(@Body request: JoinRequest) : Call<JoinResponse>
 
     @POST("dog/info")
-    fun dogInfo(@Body request: DogRequest) : Call<DogResponse>
+    fun dogInfo(@Body request: DogInfoRequest) : Call<DogInfoResponse>
 
     @POST("dog/join")
     fun dogJoin(@Body request: DogJoinRequest) : Call<DogJoinResponse>

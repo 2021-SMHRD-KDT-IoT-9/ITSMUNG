@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.itsmungapplication.api.ApiManager
 import com.example.itsmungapplication.api.ApiService
 import com.example.itsmungapplication.api.LoginRequest
+import com.example.itsmungapplication.vo.UserVO
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
@@ -68,7 +69,10 @@ class UserLoginActivity : AppCompatActivity() {
             val userId : String = et_btn_id.text.toString()
             val userPw : String = et_btn_pw.text.toString()
 
-            val request = LoginRequest(userId, userPw)
+            val user = UserVO()
+            user.userId = userId
+            user.userPw = userPw
+            val request = LoginRequest(user)
 
             ApiManager.login(request)
             {

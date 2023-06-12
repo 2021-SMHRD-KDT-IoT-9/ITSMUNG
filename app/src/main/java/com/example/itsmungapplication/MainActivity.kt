@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.fragment.app.FragmentTransaction
-import com.example.itsmungapplication.Fragment.ExpertFragment
-import com.example.itsmungapplication.Fragment.HomeFragment
-import com.example.itsmungapplication.Fragment.MypageFragment
+import com.example.itsmungapplication.fragment.ExpertFragment
+import com.example.itsmungapplication.fragment.HomeFragment
+import com.example.itsmungapplication.fragment.MypageFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

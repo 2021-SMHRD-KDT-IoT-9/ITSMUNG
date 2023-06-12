@@ -18,6 +18,8 @@ import com.example.itsmungapplication.DogStoolActivity
 import com.example.itsmungapplication.PayActivity
 import com.example.itsmungapplication.R
 import com.example.itsmungapplication.WeightActivity
+import com.example.itsmungapplication.api.ApiManager
+import com.example.itsmungapplication.api.DogInfoRequest
 import java.time.LocalDate
 
 
@@ -50,8 +52,25 @@ class HomeFragment : Fragment() {
         imgbtn_home_banner = view.findViewById(R.id.imgbtn_home_banner)
         btn_home_doginfochange = view.findViewById(R.id.btn_home_doginfochange)
 
+        // 개 정보 불러오기
+        val request = DogInfoRequest(userId)
+
+        ApiManager.dogInfo(request)
+        {
+            response->
+            if(response != null)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+
         // TODO : 회원id를 토대로 반려견의 정보를 가져와서 입력한다. 아래의 변수의 데이터를 입력해주세요
-//        소다\n 나이 : 3세\n 성별 : 여아\n 견종 : 하이브리드종 \n           중성화 X
+        //        소다\n 나이 : 3세\n 성별 : 여아\n 견종 : 하이브리드종 \n           중성화 X
         var dog_name : String = ""
         var dog_age : Int = 0
         var birthday : String = "2020-05-07"

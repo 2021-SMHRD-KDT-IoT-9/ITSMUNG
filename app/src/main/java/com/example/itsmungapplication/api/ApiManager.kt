@@ -70,13 +70,13 @@ object ApiManager {
     }
 
     // 개 정보 불러오기 통신
-    fun dogInfo(request: DogRequest, callback: (DogResponse?) -> Unit)
+    fun dogInfo(request: DogInfoRequest, callback: (DogInfoResponse?) -> Unit)
     {
         val call = apiService.dogInfo(request)
 
-        call.enqueue(object : Callback<DogResponse>
+        call.enqueue(object : Callback<DogInfoResponse>
         {
-            override fun onResponse(call: Call<DogResponse>, response: Response<DogResponse>)
+            override fun onResponse(call: Call<DogInfoResponse>, response: Response<DogInfoResponse>)
             {
                 if(response.isSuccessful)
                 {
@@ -89,7 +89,7 @@ object ApiManager {
                 }
             }
 
-            override fun onFailure(call: Call<DogResponse>, t: Throwable)
+            override fun onFailure(call: Call<DogInfoResponse>, t: Throwable)
             {
                 callback(null)
             }

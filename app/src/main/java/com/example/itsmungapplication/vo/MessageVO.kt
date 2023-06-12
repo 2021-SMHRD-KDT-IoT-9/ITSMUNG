@@ -8,4 +8,4 @@ data class MessageVO (
     var senderType: String? = "",
     var content: String? = "",
     var sendTime: String? = ""
-        )
+)

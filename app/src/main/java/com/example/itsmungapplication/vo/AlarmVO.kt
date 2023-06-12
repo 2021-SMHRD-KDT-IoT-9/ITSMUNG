@@ -6,4 +6,4 @@ data class AlarmVO (
     var userId: String? = "",
     var content: String? = "",
     var alarmDate: String? = ""
-        )
+)

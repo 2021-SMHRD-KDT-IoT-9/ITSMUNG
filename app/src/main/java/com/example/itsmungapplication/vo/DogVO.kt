@@ -9,4 +9,4 @@ data class DogVO (
     var dogGender: String = "",
     var dogBreed: String = "",
     var dogNeutered: String = ""
-        )
+)
