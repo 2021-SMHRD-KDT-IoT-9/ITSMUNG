@@ -24,7 +24,7 @@ data class JoinResponse(
 
 // Dog Info
 data class DogInfoRequest(
-    val userId : String?
+    val user : UserVO
 )
 
 data class DogInfoResponse(

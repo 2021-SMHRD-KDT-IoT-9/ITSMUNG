@@ -58,7 +58,7 @@ class UserLoginActivity : AppCompatActivity() {
         // 06/01 이영재
         // 사용자의 로그인 상태를 저장하기 위한 값입니다.
         // 모바일 내부에 파일 형태로 저장합니다.
-        sharedPreferences = getSharedPreferences("my_app", Context.MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("itsmung", Context.MODE_PRIVATE)
         editor = sharedPreferences.edit()
 
         // 사용자 로그인 상태 확인 및 처리
@@ -72,13 +72,24 @@ class UserLoginActivity : AppCompatActivity() {
             val user = UserVO()
             user.userId = userId
             user.userPw = userPw
+
             val request = LoginRequest(user)
 
+            // 로그인 확인
             ApiManager.login(request)
             {
                 response->
                 if(response != null)
                 {
+                    // 토큰, ID 저장
+                    val token = response.token
+                    val userId = response.userId
+
+                    editor.putString("token", token)
+                    editor.putString("userId", userId)
+                    editor.apply()
+
+                    // MainActivity로 이동
                     val intent = Intent(this@UserLoginActivity, MainActivity::class.java)
                     startActivity(intent)
                     Toast.makeText(this, "로그인에 성공하셨습니다", Toast.LENGTH_SHORT).show()
@@ -91,8 +102,7 @@ class UserLoginActivity : AppCompatActivity() {
             }
         }
 
-
-
+        // UserJoinActivity로 이동
         btn_join.setOnClickListener {
             val intent = Intent(this@UserLoginActivity, UserJoinActivity::class.java)
             startActivity(intent)
