@@ -1,6 +1,8 @@
 package com.example.itsmungapplication
 
 data class DeviceVO (
-    val name: String = "",
-    val ipAddress: String =""
-)
+    var deviceId: String? = "",
+    var userId: String? = "",
+    var videoPath: String? = "",
+    var regStatus: String? = ""
+        )

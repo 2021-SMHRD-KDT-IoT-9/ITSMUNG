@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintGuide_percent="0.10015175"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -39,14 +39,14 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="0dp"
-        android:layout_height="180dp"
+        android:layout_height="150dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="@+id/guideline12"
         app:layout_constraintTop_toTopOf="@+id/guideline11"
         app:srcCompat="@drawable/logo3" />
 
     <EditText
-        android:id="@+id/et_btn_login_id"
+        android:id="@+id/et_user_login_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/et_btn_login_pw"
+        android:id="@+id/et_user_login_pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -72,15 +72,15 @@
         android:hint="PW"
         android:inputType="text"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/et_btn_login_id"
-        app:layout_constraintStart_toStartOf="@+id/et_btn_login_id"
-        app:layout_constraintTop_toBottomOf="@+id/et_btn_login_id" />
+        app:layout_constraintEnd_toEndOf="@+id/et_user_login_id"
+        app:layout_constraintStart_toStartOf="@+id/et_user_login_id"
+        app:layout_constraintTop_toBottomOf="@+id/et_user_login_id" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_user_login_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/blue"
         android:fontFamily="@font/im_hyemin_bold"
         android:insetTop="0dp"
@@ -89,22 +89,39 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/et_btn_login_pw"
+        app:layout_constraintEnd_toEndOf="@+id/et_user_login_pw"
+        app:layout_constraintStart_toStartOf="@+id/et_user_login_pw"
+        app:layout_constraintTop_toBottomOf="@+id/et_user_login_pw" />
+
+    <Button
+        android:id="@+id/btn_user_login_join"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="JOIN"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btn_user_login_login"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/et_btn_login_pw"
-        app:layout_constraintTop_toBottomOf="@+id/et_btn_login_pw" />
+        app:layout_constraintStart_toStartOf="@+id/btn_user_login_login"
+        app:layout_constraintTop_toBottomOf="@+id/btn_user_login_login" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="30dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="or"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_login"
-        app:layout_constraintStart_toStartOf="@+id/btn_login"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_kakao_login"
+        app:layout_constraintEnd_toEndOf="@+id/btn_user_login_join"
+        app:layout_constraintStart_toStartOf="@+id/btn_user_login_login"
+        app:layout_constraintTop_toBottomOf="@+id/btn_user_login_join" />
 
     <ImageButton
         android:id="@+id/btn_kakao_login"
@@ -114,6 +131,6 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="@+id/guideline12"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:srcCompat="@drawable/kakao_login_medium_wide" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

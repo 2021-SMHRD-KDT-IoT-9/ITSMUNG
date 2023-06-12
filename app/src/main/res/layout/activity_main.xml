@@ -14,6 +14,7 @@
         app:layout_constraintGuide_percent="0.9" />
 
     <!--네비게이션 바 -->
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv"
         android:layout_width="0dp"

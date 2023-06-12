@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".UserInfoActivity">
 
+    <FrameLayout
+        android:id="@+id/fl_user_info_mypage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"
         android:layout_width="wrap_content"
@@ -59,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
     <TextView
-        android:id="@+id/textView32"
+        android:id="@+id/tv_user_info_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -80,16 +89,17 @@
         android:fontFamily="@font/im_hyemin_bold"
         android:text="PW"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/textView32"
-        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+        app:layout_constraintStart_toStartOf="@+id/tv_user_info_id"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_info_id" />
 
     <EditText
-        android:id="@+id/editTextText12"
+        android:id="@+id/et_user_info_pw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="영문/숫자/특수문자 혼합 8자 이상"
+        android:fontFamily="@font/im_hyemin_bold"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/textView33"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
@@ -102,12 +112,12 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="Name"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText12"
+        app:layout_constraintEnd_toEndOf="@+id/et_user_info_pw"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText12" />
+        app:layout_constraintTop_toBottomOf="@+id/et_user_info_pw" />
 
     <TextView
-        android:id="@+id/textView36"
+        android:id="@+id/tv_user_info_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -127,12 +137,12 @@
         android:layout_marginTop="25dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="Nickname"
-        app:layout_constraintEnd_toEndOf="@+id/textView36"
-        app:layout_constraintStart_toStartOf="@+id/textView36"
-        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_user_info_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_info_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_info_name" />
 
     <EditText
-        android:id="@+id/editTextText14"
+        android:id="@+id/et_user_info_nick"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -151,12 +161,12 @@
         android:layout_marginTop="25dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="Tel"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText14"
-        app:layout_constraintStart_toStartOf="@+id/editTextText14"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText14" />
+        app:layout_constraintEnd_toEndOf="@+id/et_user_info_nick"
+        app:layout_constraintStart_toStartOf="@+id/et_user_info_nick"
+        app:layout_constraintTop_toBottomOf="@+id/et_user_info_nick" />
 
     <EditText
-        android:id="@+id/editTextText13"
+        android:id="@+id/et_user_info_tel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -170,7 +180,7 @@
 
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_user_info_save"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -185,6 +195,6 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline16"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText13" />
+        app:layout_constraintTop_toBottomOf="@+id/et_user_info_tel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
