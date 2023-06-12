@@ -18,10 +18,15 @@ import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.itsmungapplication.api.ApiManager
+import com.example.itsmungapplication.api.ApiService
+import com.example.itsmungapplication.api.LoginRequest
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -30,79 +35,22 @@ class UserLoginActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: Editor
 
-    // TAG for kakaoLogin - kakaoTalk가 없는 경우
-    private val mCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
-        // TODO : DB체크를 통해 해당하는 아이디가 있는지 확인합니다.
-        //  없는 경우 UserJoinActivity로 이동합니다.
-        //  있는 경우 MainActivity로 들어갑니다.
-        if (error != null) {
-            Log.e(ContentValues.TAG, "로그인 실패 $error")
-            Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
-            // 왜 계속 오류가 뜰까?
-            // hash 값 잘못 등록 오ㅗ류 -> 해결
-
-        } else if (token != null) {
-            Log.e(ContentValues.TAG, "로그인 성공 ${token.accessToken}")
-            UserApiClient.instance.me { user, error ->
-                if (error != null) {
-                    Log.e(TAG, "사용자 정보 요청 실패", error)
-                    Toast.makeText(this, "사용자 정보 요청 실패", Toast.LENGTH_SHORT).show()
-                }
-                else if (user != null) {
-                    var scopes = mutableListOf<String>()
-
-                    if (user.kakaoAccount?.emailNeedsAgreement == true) { scopes.add("account_email") }
-                    //scope 목록을 전달하여 카카오 로그인 요청
-                    UserApiClient.instance.loginWithNewScopes(this, scopes) { token, error ->
-                        if (error != null) {
-                            Log.e(TAG, "사용자 추가 동의 실패", error)
-                            Toast.makeText(this, "사용자 추가 동의 실패", Toast.LENGTH_SHORT).show()
-                        } else {
-                            Log.d(TAG, "allowed scopes: ${token!!.scopes}")
-
-                            // 사용자 정보 재요청
-                            UserApiClient.instance.me { user, error ->
-                                if (error != null) {
-                                    Log.e(TAG, "사용자 정보 요청 실패", error)
-                                    Toast.makeText(this, "사용자 정보 요청 실패", Toast.LENGTH_SHORT).show()
-                                }
-                                else if (user != null) {
-                                    Log.i(TAG, "사용자 정보 요청 성공" +
-                                            "\n회원번호: ${user.id}" +
-                                            "\n이메일: ${user.kakaoAccount?.email}")
-                                    // TODO : DB 체크를 필요합니다.
-                                    //  카카오 등록이 된 이메일이 있는지 확인합니다.
-                                    var DBKakaoCheck : Boolean = false
-                                    if(DBKakaoCheck){
-                                        editor.putString("user_id", "${user.kakaoAccount?.email}") // "user_id"라는 키에 아이디를 저장
-                                        editor.putBoolean("isLoggedIn", true)
-                                        editor.putLong("lastLoginTime", System.currentTimeMillis()) // 사용자가 로그인한 시간을 저장
-                                        editor.apply()
-                                        startMainActivity()
-                                    }else{
-                                        startUserJoinActivity(user.kakaoAccount?.email.toString())
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-
-                }
-            }
-        }
-    }
+    private lateinit var et_btn_id : EditText
+    private lateinit var et_btn_pw : EditText
+    private lateinit var btn_login : Button
+    private lateinit var btn_join : Button
+    private lateinit var btn_kakao_login : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_login)
 
-        val et_btn_id : EditText = findViewById(R.id.et_user_login_id)
-        val et_btn_pw : EditText = findViewById(R.id.et_user_login_pw)
-        val btn_login : Button = findViewById(R.id.btn_user_login_login)
-        val btn_join : Button = findViewById(R.id.btn_user_login_join)
+        et_btn_id = findViewById(R.id.et_user_login_id)
+        et_btn_pw = findViewById(R.id.et_user_login_pw)
+        btn_login = findViewById(R.id.btn_user_login_login)
+        btn_join = findViewById(R.id.btn_user_login_join)
         // 카카오 로그인을 위한 부분
-        val btn_kakao_login : ImageButton = findViewById(R.id.btn_kakao_login)
+        btn_kakao_login = findViewById(R.id.btn_kakao_login)
 
 
 
@@ -111,45 +59,32 @@ class UserLoginActivity : AppCompatActivity() {
         // 모바일 내부에 파일 형태로 저장합니다.
         sharedPreferences = getSharedPreferences("my_app", Context.MODE_PRIVATE)
         editor = sharedPreferences.edit()
+
         // 사용자 로그인 상태 확인 및 처리
         checkLoginStatus()
 
-
         // Login
         btn_login.setOnClickListener {
-            var id : String = et_btn_id.text.toString()
-            var pw : String = et_btn_pw.text.toString()
+            val userId : String = et_btn_id.text.toString()
+            val userPw : String = et_btn_pw.text.toString()
 
-            // TODO: DB에 회원 id와  비밀번호를 확인합니다.
-            // TODO: select 해서 가져오는 값이 있는 경우 true를 반환합니다. 없는 경우 로그인에 실패합니다.
+            val request = LoginRequest(userId, userPw)
 
-
-            // test 예시
-            //UserControl을 만들어 아이디아 비밀번호가 있는지 확인한다.
-            //val UserVO : UserVO = UserVO()
-            //UserVO.userId, User.userpw사용
-             if(id == "test" && pw == "1234") {
-                 // 사용자가 로그인 아이디를 저
-
-                 editor.putString("user_id", id) // "user_id"라는 키에 아이디를 저장
-                 editor.putBoolean("isLoggedIn", true)
-                 editor.putLong("lastLoginTime", System.currentTimeMillis()) // 사용자가 로그인한 시간을 저장
-                 editor.apply()
-
-                 val intent = Intent(
-                     this@UserLoginActivity,
-                     MainActivity::class.java
-                 )
-                 startActivity(intent)
-                 Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
-                 // 이동하고 stack 삭제
-                 finish()
-             }else{
-                 et_btn_id.setText("")
-                 et_btn_pw.setText("")
-                 Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
-             }
-
+            ApiManager.login(request)
+            {
+                response->
+                if(response != null)
+                {
+                    val intent = Intent(this@UserLoginActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    Toast.makeText(this, "로그인에 성공하셨습니다", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+                else
+                {
+                    Toast.makeText(this@UserLoginActivity, "로그인에 실패하셨습니다", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
 
@@ -158,7 +93,8 @@ class UserLoginActivity : AppCompatActivity() {
             val intent = Intent(this@UserLoginActivity, UserJoinActivity::class.java)
             startActivity(intent)
         }
-        
+
+
         // kakaoLogin 구현
         btn_kakao_login.setOnClickListener {
             // Hash키 파악하기용
@@ -259,6 +195,7 @@ class UserLoginActivity : AppCompatActivity() {
         }
 
     }
+
     private fun startUserJoinActivity(email: String) {
         val intent = Intent(this@UserLoginActivity, UserJoinActivity::class.java)
         intent.putExtra("kakaoTry", true)
@@ -266,7 +203,7 @@ class UserLoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
     private fun startMainActivity() {
-        val intent = Intent(this@UserLoginActivity, MainActivity::class.java)
+            val intent = Intent(this@UserLoginActivity, MainActivity::class.java)
         startActivity(intent)
     }
     // login check 함수
@@ -289,6 +226,69 @@ class UserLoginActivity : AppCompatActivity() {
                 // 사용자가 7일 이내에 로그인한 경우, 메인 화면으로 이동
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
+            }
+        }
+    }
+
+    // TAG for kakaoLogin - kakaoTalk가 없는 경우
+    private val mCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
+        // TODO : DB체크를 통해 해당하는 아이디가 있는지 확인합니다.
+        //  없는 경우 UserJoinActivity로 이동합니다.
+        //  있는 경우 MainActivity로 들어갑니다.
+        if (error != null) {
+            Log.e(ContentValues.TAG, "로그인 실패 $error")
+            Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
+            // 왜 계속 오류가 뜰까?
+            // hash 값 잘못 등록 오ㅗ류 -> 해결
+
+        } else if (token != null) {
+            Log.e(ContentValues.TAG, "로그인 성공 ${token.accessToken}")
+            UserApiClient.instance.me { user, error ->
+                if (error != null) {
+                    Log.e(TAG, "사용자 정보 요청 실패", error)
+                    Toast.makeText(this, "사용자 정보 요청 실패", Toast.LENGTH_SHORT).show()
+                }
+                else if (user != null) {
+                    var scopes = mutableListOf<String>()
+
+                    if (user.kakaoAccount?.emailNeedsAgreement == true) { scopes.add("account_email") }
+                    //scope 목록을 전달하여 카카오 로그인 요청
+                    UserApiClient.instance.loginWithNewScopes(this, scopes) { token, error ->
+                        if (error != null) {
+                            Log.e(TAG, "사용자 추가 동의 실패", error)
+                            Toast.makeText(this, "사용자 추가 동의 실패", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Log.d(TAG, "allowed scopes: ${token!!.scopes}")
+
+                            // 사용자 정보 재요청
+                            UserApiClient.instance.me { user, error ->
+                                if (error != null) {
+                                    Log.e(TAG, "사용자 정보 요청 실패", error)
+                                    Toast.makeText(this, "사용자 정보 요청 실패", Toast.LENGTH_SHORT).show()
+                                }
+                                else if (user != null) {
+                                    Log.i(TAG, "사용자 정보 요청 성공" +
+                                            "\n회원번호: ${user.id}" +
+                                            "\n이메일: ${user.kakaoAccount?.email}")
+                                    // TODO : DB 체크를 필요합니다.
+                                    //  카카오 등록이 된 이메일이 있는지 확인합니다.
+                                    var DBKakaoCheck : Boolean = false
+                                    if(DBKakaoCheck){
+                                        editor.putString("user_id", "${user.kakaoAccount?.email}") // "user_id"라는 키에 아이디를 저장
+                                        editor.putBoolean("isLoggedIn", true)
+                                        editor.putLong("lastLoginTime", System.currentTimeMillis()) // 사용자가 로그인한 시간을 저장
+                                        editor.apply()
+                                        startMainActivity()
+                                    }else{
+                                        startUserJoinActivity(user.kakaoAccount?.email.toString())
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+                }
             }
         }
     }

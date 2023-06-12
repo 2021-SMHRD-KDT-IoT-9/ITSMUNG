@@ -1,4 +1,4 @@
-package com.example.itsmungapplication.Fragment
+package com.example.itsmungapplication.fragment
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
@@ -22,7 +22,6 @@ import com.example.itsmungapplication.UserLoginActivity
 import com.kakao.sdk.user.UserApiClient
 import android.content.ContentValues.TAG
 import android.widget.Toast
-import com.example.itsmungapplication.MainActivity
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
@@ -32,6 +31,7 @@ class MypageFragment : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
     private lateinit var context: Context
+
     // TAG for kakaoLogin - kakaoTalk가 없는 경우
     private val mCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
         // TODO : DB체크를 통해 해당하는 아이디가 있는지 확인합니다.
@@ -41,7 +41,7 @@ class MypageFragment : Fragment() {
             Log.e(ContentValues.TAG, "로그인 실패 $error")
             Toast.makeText(requireContext(), "로그인 실패", Toast.LENGTH_SHORT).show()
             // 왜 계속 오류가 뜰까?
-            // hash 값 잘못 등록 오ㅗ류 -> 해결
+            // hash 값 잘못 등록 오류 -> 해결
 
         } else if (token != null) {
             Log.e(ContentValues.TAG, "로그인 성공 ${token.accessToken}")

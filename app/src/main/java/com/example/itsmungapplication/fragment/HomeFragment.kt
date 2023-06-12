@@ -1,4 +1,4 @@
-package com.example.itsmungapplication.Fragment
+package com.example.itsmungapplication.fragment
 
 import android.content.Context
 import android.content.Intent
@@ -23,11 +23,19 @@ import java.time.LocalDate
 
 class HomeFragment : Fragment() {
 
+    private lateinit var btn_home_dogstool: Button
+    private lateinit var btn_home_dogpea: Button
+    private lateinit var btn_home_cctv: Button
+    private lateinit var btn_home_weight: Button
+    private lateinit var imgbtn_home_banner : ImageButton
+    private lateinit var btn_home_doginfochange : Button
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View?
+    {
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
@@ -35,13 +43,12 @@ class HomeFragment : Fragment() {
         val sharedPreferences = requireContext().getSharedPreferences("my_app", Context.MODE_PRIVATE)
         val userId = sharedPreferences.getString("user_id", null)
 
-
-        val btn_home_dogstool: Button = view.findViewById(R.id.btn_home_dogstool)
-        val btn_home_dogpea: Button = view.findViewById(R.id.btn_home_dogpea)
-        val btn_home_cctv: Button = view.findViewById(R.id.btn_home_cctv)
-        val btn_home_weight : Button = view.findViewById(R.id.btn_home_weight)
-        val imgbtn_home_banner : ImageButton = view.findViewById(R.id.imgbtn_home_banner)
-        val btn_home_doginfochange : Button = view.findViewById(R.id.btn_home_doginfochange)
+        btn_home_dogstool = view.findViewById(R.id.btn_home_dogstool)
+        btn_home_dogpea = view.findViewById(R.id.btn_home_dogpea)
+        btn_home_cctv = view.findViewById(R.id.btn_home_cctv)
+        btn_home_weight = view.findViewById(R.id.btn_home_weight)
+        imgbtn_home_banner = view.findViewById(R.id.imgbtn_home_banner)
+        btn_home_doginfochange = view.findViewById(R.id.btn_home_doginfochange)
 
         // TODO : 회원id를 토대로 반려견의 정보를 가져와서 입력한다. 아래의 변수의 데이터를 입력해주세요
 //        소다\n 나이 : 3세\n 성별 : 여아\n 견종 : 하이브리드종 \n           중성화 X

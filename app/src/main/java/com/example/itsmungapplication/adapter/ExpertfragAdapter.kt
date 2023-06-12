@@ -1,11 +1,10 @@
-package com.example.itsmungapplication.Adapter
+package com.example.itsmungapplication.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.itsmungapplication.MessageVO
 import com.example.itsmungapplication.R
 
 class ExpertfragAdapter(private val messageList: List<String>) :

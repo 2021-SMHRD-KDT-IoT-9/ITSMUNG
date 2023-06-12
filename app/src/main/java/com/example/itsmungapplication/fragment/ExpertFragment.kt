@@ -1,6 +1,5 @@
-package com.example.itsmungapplication.Fragment
+package com.example.itsmungapplication.fragment
 
-import android.content.ClipData.Item
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,7 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.itsmungapplication.Adapter.ExpertfragAdapter
+import com.example.itsmungapplication.adapter.ExpertfragAdapter
 import com.example.itsmungapplication.R
 
 class ExpertFragment : Fragment() {

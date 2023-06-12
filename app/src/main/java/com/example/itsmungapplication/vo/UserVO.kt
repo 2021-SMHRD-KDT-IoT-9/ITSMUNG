@@ -1,4 +1,4 @@
-package com.example.itsmungapplication
+package com.example.itsmungapplication.vo
 
 data class UserVO  (
     var userId : String = "",
@@ -10,4 +10,4 @@ data class UserVO  (
     var kakaoEmail : String = "",
     var kakaoRegDate : String = "",
     var processDogId : String = ""
-        )
+)
