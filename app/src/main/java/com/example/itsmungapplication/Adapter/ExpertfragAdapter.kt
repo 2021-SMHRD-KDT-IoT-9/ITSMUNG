@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.itsmungapplication.MessageVO
 import com.example.itsmungapplication.R
 
-class ExpertfragAdapter(private val messageList: List<String>) :
+class ExpertfragAdapter(private val messageList: List<MessageVO>) :
     RecyclerView.Adapter<ExpertfragAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -16,7 +16,6 @@ class ExpertfragAdapter(private val messageList: List<String>) :
         val tvChatDate: TextView = itemView.findViewById(R.id.tv_chat_date)
         val tvChatIsShown: TextView = itemView.findViewById(R.id.tv_chat_isShown)
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutResId = when (viewType) {
@@ -31,7 +30,7 @@ class ExpertfragAdapter(private val messageList: List<String>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val message = messageList[position]
-        holder.tvChatMessage.text = message
+        holder.tvChatMessage.text = message.content
         // Set other values here if needed
     }
 
