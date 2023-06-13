@@ -29,7 +29,7 @@ class UserLoginActivity : AppCompatActivity() {
 
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: Editor
-
+    //new UserTest branch
     // TAG for kakaoLogin - kakaoTalk가 없는 경우
     private val mCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
         // TODO : DB체크를 통해 해당하는 아이디가 있는지 확인합니다.
