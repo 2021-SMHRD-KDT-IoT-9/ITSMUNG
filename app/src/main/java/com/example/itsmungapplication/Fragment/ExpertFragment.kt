@@ -30,7 +30,7 @@ class ExpertFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        expertFragAdapter = ExpertfragAdapter(messageList)
+        //expertFragAdapter = ExpertfragAdapter(messageList)
 
         recycler_expertf = view.findViewById(R.id.recycler_expertf)
         btn_expertf_submit = view.findViewById(R.id.btn_expertf_submit)
