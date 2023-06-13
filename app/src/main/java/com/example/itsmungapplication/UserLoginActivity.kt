@@ -140,7 +140,7 @@ class UserLoginActivity : AppCompatActivity() {
                  editor.apply()
 
 
-                 val intent = Intent(this@UserLoginActivity, DogJoinActivity::class.java)
+                 val intent = Intent(this@UserLoginActivity, DeviceActivity::class.java)
                  startActivity(intent)
 
                  Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()

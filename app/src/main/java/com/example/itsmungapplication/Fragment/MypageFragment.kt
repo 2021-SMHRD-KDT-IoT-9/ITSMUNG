@@ -112,11 +112,11 @@ class MypageFragment : Fragment() {
 
         
         // TODO : 사용자의 정보를 가져옵니다.(DB에서)
-        var dogName : String = "소다"
+        var dogName : String? = sharedPreferences.getString("dogName","")
         tv_mypage_dogUserName.setText(dogName + "보호자님")
-        var name : String = "이영재"
+        var name : String? = sharedPreferences.getString("userName","")
         tv_mypage_userName.setText(name + " 님 \uD83C\uDF80")
-        var tel : String = "010-1234-5678"
+        var tel : String? = sharedPreferences.getString("userTel","")
         tv_mypage_userTel.setText(tel)
         // 카카오 어떻게 아이디를 보여줄 것인가? 정말 연계된 아이디를 보여줄 것인가?
         // DB 카카오 로그인 연계가 되어있는 경우
