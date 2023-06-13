@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/im_hyemin_bold"
-        android:text="010 - 1234 - 5678"
+        android:text="010 - 1234 - 1234"
         android:textColor="@color/zete"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/tv_mypage_username"

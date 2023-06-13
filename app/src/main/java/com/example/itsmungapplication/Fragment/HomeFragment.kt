@@ -2,6 +2,8 @@ package com.example.itsmungapplication.Fragment
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.SharedPreferences.Editor
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,7 +24,8 @@ import java.time.LocalDate
 
 
 class HomeFragment : Fragment() {
-
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: Editor
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +37,7 @@ class HomeFragment : Fragment() {
         // 내부에 저장된 user_id(DB에서 가져오기용)
         val sharedPreferences = requireContext().getSharedPreferences("my_app", Context.MODE_PRIVATE)
         val userId = sharedPreferences.getString("user_id", null)
-
+        editor = sharedPreferences.edit()
 
         val btn_home_dogstool: Button = view.findViewById(R.id.btn_home_dogstool)
         val btn_home_dogpea: Button = view.findViewById(R.id.btn_home_dogpea)
@@ -43,12 +46,19 @@ class HomeFragment : Fragment() {
         val imgbtn_home_banner : ImageButton = view.findViewById(R.id.imgbtn_home_banner)
         val btn_home_doginfochange : Button = view.findViewById(R.id.btn_home_doginfochange)
 
+
+        val dogName = sharedPreferences.getString("dogName","소다")
+        val dogBirthday = sharedPreferences.getString("dogBirthday","2020-10-10")
+        val dogWeight =  sharedPreferences.getFloat("dogWeight",0f)
+        val dogSpecies =  sharedPreferences.getString("dogSpecies","잡종")
+        val dogGender =  sharedPreferences.getString("dogGender","남")
+        val dogNeutered =  sharedPreferences.getString("dogNeutered","O")
         // TODO : 회원id를 토대로 반려견의 정보를 가져와서 입력한다. 아래의 변수의 데이터를 입력해주세요
 //        소다\n 나이 : 3세\n 성별 : 여아\n 견종 : 하이브리드종 \n           중성화 X
-        var dog_name : String = ""
+        var dog_name : String? = dogName
         var dog_age : Int = 0
-        var birthday : String = "2020-05-07"
-        if (birthday.isNotEmpty()) {
+        var birthday : String? = dogBirthday
+        if (birthday?.isNotEmpty() == true) {
             val parts = birthday.split("-") // 년, 월, 일로 분리합니다.
             if (parts.size == 3) {
                 val year = parts[0].toInt()
@@ -61,10 +71,10 @@ class HomeFragment : Fragment() {
             }
         }
 
-        var dog_gender : String = ""
-        var dog_species : String = ""
+        var dog_gender : String? = dogGender
+        var dog_species : String? = dogSpecies
         // 견종
-        var dog_neutered : String = ""
+        var dog_neutered : String? = dogNeutered
         btn_home_doginfochange.setText(" 이름 : $dog_name\n 나이 : $dog_age 세\n 성별 : $dog_gender \n 견종 : $dog_species\n 중성화 : $dog_neutered")
 
 
@@ -96,11 +106,7 @@ class HomeFragment : Fragment() {
         btn_home_doginfochange.setOnClickListener {
             val intent = Intent(activity, DogJoinActivity::class.java)
             // 이동할 때 반려견의 기본 정보를 같이 가지고 이동합니다.
-            intent.putExtra("dog_name", dog_name)
-            intent.putExtra("dog_age", dog_age)
-            intent.putExtra("dog_gender", dog_gender)
-            intent.putExtra("dog_species", dog_species)
-            intent.putExtra("dog_neutered", dog_neutered)
+
             startActivity(intent)
         }
 

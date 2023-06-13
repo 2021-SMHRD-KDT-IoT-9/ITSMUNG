@@ -112,7 +112,7 @@ class UserLoginActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("my_app", Context.MODE_PRIVATE)
         editor = sharedPreferences.edit()
         // 사용자 로그인 상태 확인 및 처리
-        checkLoginStatus()
+//        checkLoginStatus()
 
 
         // Login
@@ -128,26 +128,28 @@ class UserLoginActivity : AppCompatActivity() {
             //UserControl을 만들어 아이디아 비밀번호가 있는지 확인한다.
             //val UserVO : UserVO = UserVO()
             //UserVO.userId, User.userpw사용
-             if(id == "test" && pw == "1234") {
+            val userId = sharedPreferences.getString("userId", "")
+            val userPw = sharedPreferences.getString("userPw", "")
+
+             if(id == userId && pw == userPw) {
                  // 사용자가 로그인 아이디를 저
 
-                 editor.putString("user_id", id) // "user_id"라는 키에 아이디를 저장
+
                  editor.putBoolean("isLoggedIn", true)
                  editor.putLong("lastLoginTime", System.currentTimeMillis()) // 사용자가 로그인한 시간을 저장
                  editor.apply()
 
-                 val intent = Intent(
-                     this@UserLoginActivity,
-                     MainActivity::class.java
-                 )
+
+                 val intent = Intent(this@UserLoginActivity, DogJoinActivity::class.java)
                  startActivity(intent)
+
                  Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
                  // 이동하고 stack 삭제
                  finish()
              }else{
                  et_btn_id.setText("")
                  et_btn_pw.setText("")
-                 Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
+                 Toast.makeText(this, "로그인 실패 ${userId},${userPw}", Toast.LENGTH_SHORT).show()
              }
 
         }
@@ -266,8 +268,14 @@ class UserLoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
     private fun startMainActivity() {
-        val intent = Intent(this@UserLoginActivity, MainActivity::class.java)
-        startActivity(intent)
+        if (intent.getBooleanExtra("dogJoin",false)){
+            val intent = Intent(this@UserLoginActivity, MainActivity::class.java)
+            startActivity(intent)
+        } else{
+            val intent = Intent(this@UserLoginActivity, DogJoinActivity::class.java)
+            startActivity(intent)
+        }
+
     }
     // login check 함수
     private fun checkLoginStatus() {

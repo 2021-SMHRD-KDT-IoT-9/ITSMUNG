@@ -27,13 +27,13 @@ class UserInfoActivity : AppCompatActivity() {
         btn_user_info_save = findViewById(R.id.btn_user_info_save)
 
         // TODO : DB에서 가져온 정보를 입력한다.
-        var id : String = "youngjae9683@gmail.com"
+        var id : String = "test"
         tv_user_info_id.setText(id)
         var name : String = "이영재"
         tv_user_info_name.setText(name)
         var pw : String = "1234"
         et_user_info_pw.setText(pw)
-        var nick : String = "Sarami"
+        var nick : String = "test"
         et_user_info_nick.setText(nick)
         var tel : String = "010-1234-1234"
         et_user_info_tel.setText(tel)

@@ -1,6 +1,9 @@
 package com.example.itsmungapplication
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.SharedPreferences.Editor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -14,15 +17,24 @@ import java.util.Calendar
 
 class DogJoinActivity : AppCompatActivity() {
 
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: Editor
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dog_join)
-        var name = intent.getStringExtra("dog_name")
-        var gender = intent.getStringExtra("dog_gender")
-        var age = intent.getStringExtra("dog_age")
-        var species = intent.getStringExtra("dog_species")
+
+        // ...
+
+        sharedPreferences = getSharedPreferences("my_app", MODE_PRIVATE)
+        editor = sharedPreferences.edit()
+
+        var name = sharedPreferences.getString("dogName","")
+        var gender = sharedPreferences.getString("dogGender","")
+        var age = sharedPreferences.getInt("dogAge",0)
+        var species = sharedPreferences.getString("dogSpecies","")
         // 견종
-        var neutered = intent.getStringExtra("dog_neutered")
+        var neutered = sharedPreferences.getString("dogNeutered","")
 
 
 
@@ -42,54 +54,56 @@ class DogJoinActivity : AppCompatActivity() {
         val et_dog_join_day : EditText = findViewById(R.id.et_dog_join_day)
         // DB에서 가져온 경우
         // 아래가 DB에 있는 경우
-        var birthday : String = ""
-        if (birthday.isNotEmpty()) {
-            val parts = birthday.split("-") // 년, 월, 일로 분리합니다.
-            if (parts.size == 3) {
-                val year = parts[0]
-                val month = parts[1]
-                val day = parts[2]
+        var birthday : String? = sharedPreferences.getString("dogBirthday","")
+        if (birthday != null) {
+            if (birthday.isNotEmpty()) {
+                val parts = birthday.split("-") // 년, 월, 일로 분리합니다.
+                if (parts.size == 3) {
+                    val year = parts[0]
+                    val month = parts[1]
+                    val day = parts[2]
 
-                et_dog_join_year.setText(year)
-                et_dog_join_month.setText(month)
-                et_dog_join_day.setText(day)
-            }
-        } else{
-            // 없는 경우 현재 시간을 넣어준다.
-            // hint 형태로 값을 입력
-            val calendar = Calendar.getInstance().time
-            val dateFormat = DateFormat.getDateInstance().format(calendar)
-            Log.d("test","왔는지 확인")
-            Log.d("dateFormat",dateFormat)
-            val parts = dateFormat.split(" ", ",") // 공백과 쉼표를 구분자로 사용하여 문자열 분할
-            Log.d("parts",parts.size.toString())
-            if (parts.size == 4) {
-                val monthString = parts[0] // 영어 형식의 월
-                val day = parts[1].toInt() // 일
-                val year = parts[3].toInt() // 년
-
-                // 영어 형식의 월을 숫자 형태로 변환
-                val month: Int = when (monthString) {
-                    "Jan" -> 1
-                    "Feb" -> 2
-                    "Mar" -> 3
-                    "Apr" -> 4
-                    "May" -> 5
-                    "Jun" -> 6
-                    "Jul" -> 7
-                    "Aug" -> 8
-                    "Sep" -> 9
-                    "Oct" -> 10
-                    "Nov" -> 11
-                    "Dec" -> 12
-                    else -> -1 // 유효하지 않은 월
+                    et_dog_join_year.setText(year)
+                    et_dog_join_month.setText(month)
+                    et_dog_join_day.setText(day)
                 }
-                et_dog_join_year.hint = year.toString()
-                et_dog_join_month.hint = month.toString()
-                et_dog_join_day.hint =(day.toString())
+            } else{
+                // 없는 경우 현재 시간을 넣어준다.
+                // hint 형태로 값을 입력
+                val calendar = Calendar.getInstance().time
+                val dateFormat = DateFormat.getDateInstance().format(calendar)
+                Log.d("test","왔는지 확인")
+                Log.d("dateFormat",dateFormat)
+                val parts = dateFormat.split(" ", ",") // 공백과 쉼표를 구분자로 사용하여 문자열 분할
+                Log.d("parts",parts.size.toString())
+                if (parts.size == 4) {
+                    val monthString = parts[0] // 영어 형식의 월
+                    val day = parts[1].toInt() // 일
+                    val year = parts[3].toInt() // 년
+
+                    // 영어 형식의 월을 숫자 형태로 변환
+                    val month: Int = when (monthString) {
+                        "Jan" -> 1
+                        "Feb" -> 2
+                        "Mar" -> 3
+                        "Apr" -> 4
+                        "May" -> 5
+                        "Jun" -> 6
+                        "Jul" -> 7
+                        "Aug" -> 8
+                        "Sep" -> 9
+                        "Oct" -> 10
+                        "Nov" -> 11
+                        "Dec" -> 12
+                        else -> -1 // 유효하지 않은 월
+                    }
+                    et_dog_join_year.hint = year.toString()
+                    et_dog_join_month.hint = month.toString()
+                    et_dog_join_day.hint =(day.toString())
+                }
+
+
             }
-
-
         }
 //
 //
@@ -100,7 +114,7 @@ class DogJoinActivity : AppCompatActivity() {
         val et_dog_join_weight : EditText = findViewById(R.id.et_dog_join_weight)
         // TODO : DB에서 무게 데이터를 가져와서 저장한다.
 //           데이터가 없는 경우 0 값을 입력한다.
-        var weight : Float = 0f
+        var weight : Float? = sharedPreferences.getFloat("dogWeight",0f)
 
         et_dog_join_weight.setText(weight.toString())
         val radio_dog_join_man : RadioButton = findViewById(R.id.radio_dog_join_man)
@@ -188,6 +202,14 @@ class DogJoinActivity : AppCompatActivity() {
             // DB에 저장할 데이터
             // name, birthday , weight, species, gender, neutered
             val intent = Intent(this@DogJoinActivity, MainActivity::class.java)
+            editor.putString("dogName", name)
+            editor.putString("dogBirthday", "$year-$month-$day")
+            editor.putFloat("dogWeight", weight!!)
+            editor.putString("dogSpecies", species)
+            editor.putString("dogGender", gender)
+            editor.putString("dogNeutered", neutered)
+            editor.apply()
+            // 강아지 정보 추가
             startActivity(intent)
             Toast.makeText(this,"등록 성공",Toast.LENGTH_SHORT).show()
             finish()
