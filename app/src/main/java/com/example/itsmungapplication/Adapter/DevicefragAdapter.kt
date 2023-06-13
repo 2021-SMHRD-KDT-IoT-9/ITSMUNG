@@ -3,35 +3,52 @@ package com.example.itsmungapplication.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.itsmungapplication.R
 
-class DevicefragAdapter :
-    RecyclerView.Adapter<DevicefragAdapter.ViewHolder>(){
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var img_devicef: ImageView = itemView.findViewById(R.id.img_devicef)
-        var tv_devicef_title: TextView = itemView.findViewById(R.id.tv_devicef_title)
-        var tv_devicef_content: TextView = itemView.findViewById(R.id.tv_devicef_content)
+class DevicefragAdapter(private val messageList: List<String>) :
+    RecyclerView.Adapter<DevicefragAdapter.ViewHolder>() {
+
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val tvChatMessage: TextView = itemView.findViewById(R.id.tv_chat_message)
+        val tvChatDate: TextView = itemView.findViewById(R.id.tv_chat_date)
+        val tvChatIsShown: TextView = itemView.findViewById(R.id.tv_chat_isShown)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): DevicefragAdapter.ViewHolder {
-        val cardView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_layout_devicef, parent, false)
 
-        return DevicefragAdapter.ViewHolder(cardView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val layoutResId = when (viewType) {
+            VIEW_TYPE_MINE -> R.layout.expert_chat_list_mine
+            VIEW_TYPE_OTHERS -> R.layout.expert_chat_list_others
+            else -> throw IllegalArgumentException("Invalid view type")
+        }
+
+        val view = LayoutInflater.from(parent.context).inflate(layoutResId, parent, false)
+        return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: DevicefragAdapter.ViewHolder, position: Int) {
-        holder.img_devicef.setImageResource(R.drawable.check)
-        holder.tv_devicef_title.setText(" 물 수위가 낮습니다. ")
-        holder.tv_devicef_content.setText(" 오수통을 비우고 물을 채워주세요. \n ")
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val message = messageList[position]
+        holder.tvChatMessage.text = message
+        // Set other values here if needed
     }
-
 
     override fun getItemCount(): Int {
-        return 5
+        return messageList.size
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        // 짝수 인덱스는 VIEW_TYPE_MINE, 홀수 인덱스는 VIEW_TYPE_OTHERS로 설정합니다.
+        return if (position % 2 == 0) {
+            VIEW_TYPE_MINE
+        } else {
+            VIEW_TYPE_OTHERS
+        }
+    }
+
+    companion object {
+        private const val VIEW_TYPE_MINE = 0
+        private const val VIEW_TYPE_OTHERS = 1
     }
 }

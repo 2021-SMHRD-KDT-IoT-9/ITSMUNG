@@ -65,11 +65,11 @@ class MainActivity : AppCompatActivity() {
                         ).commit()
                 }*/
                 R.id.tab3->{ // 전문가 페이지
-//                        supportFragmentManager.beginTransaction().replace(
-//                            R.id.fl,
-//                            ExpertFragment()
-//                        ).commit()
-//                    // do
+                        supportFragmentManager.beginTransaction().replace(
+                            R.id.fl,
+                            DeviceFragment()
+                        ).commit()
+                    // do
                 }
                 R.id.tab4->{ // 마이 페이지
                     supportFragmentManager.beginTransaction().replace(

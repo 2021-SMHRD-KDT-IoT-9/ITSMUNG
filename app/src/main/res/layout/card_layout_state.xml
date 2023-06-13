@@ -78,7 +78,7 @@
                 android:layout_marginRight="94dp"
                 android:fontFamily="@font/im_hyemin_regular"
                 android:text=" 딱딱한 토끼 똥 형태 : 변비 \n 빨간색 변 : 항문 질병 및 위장 출혈의 의심됩니다. \n 병원 내원을 추천합니다."
-                android:textSize="13dp" />
+                android:textSize="15dp" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
