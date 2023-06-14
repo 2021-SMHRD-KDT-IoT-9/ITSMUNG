@@ -229,11 +229,8 @@ class UserLoginActivity : AppCompatActivity() {
         {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-            Toast.makeText(this, "로그인 자동성공", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "자동 로그인 성공", Toast.LENGTH_SHORT).show()
         }
-
-
-
 
         /*if (isLoggedIn)
         {
