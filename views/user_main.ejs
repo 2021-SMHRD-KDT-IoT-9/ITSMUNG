@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <%- include('includes/head') %>
+  
+  <title>스마트한 반려견 화장실 잇츠멍(ITSMUNG)💦 - Main</title>
+  <link rel="stylesheet" href="<%=publicPath%>/css/User_main.css" />
+</head>
+
+<body>
+  <div>
+
+    <div class="main-size">
+
+      <%- include('includes/userheader') %>
+
+        <!-- app 사진 -->
+        <img class="app-intro" src="<%=publicPath%>/img/app_intro.png" />
+        <img class="app-login" src="<%=publicPath%>/img/app_login.png" />
+
+        <!-- 슬로건 소개 -->
+        <span class="intro">
+          <span class="smart">스마트한</span>
+          <span class="dog">반려견</span>
+          <span>화장실의 새로운 기준</span>
+        </span>
+
+        <span class="Kwaegyeon">쾌견의 잇츠멍</span>
+
+        <span class="check">
+          <span>대, 소변 자동 처리와 함께 <br />
+            우리 반려견의 건강상태를 체크해보세요.</span>
+        </span>
+
+
+        <!-- 구글플레이 -->
+        <img class="google" src="<%=publicPath%>/img/google.png">
+        <span class="another">
+          <span>*잇츠멍 앱은 일부 기기에서 지원되지 않습니다.</span>
+        </span>
+
+    </div>
+
+    <%- include('includes/footer') %>
+
+  </div>
+  <script>
+    let clickCount = 0;
+
+    function handleClick() {
+      clickCount++;
+
+      if (clickCount == 8) {
+        clickCount = 0;
+        location.href = "/admin_main"
+        
+      }
+    }
+
+    // footer-group 요소에 클릭 이벤트 리스너를 추가
+    const footerGroup = document.querySelector('.footer-group');
+    footerGroup.addEventListener('click', handleClick);
+  </script>
+</body>
+
+</html>

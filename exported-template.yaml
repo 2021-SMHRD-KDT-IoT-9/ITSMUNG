@@ -1,0 +1,232 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: SAM Template for itsmung
+Parameters:
+  WebStageName:
+    Type: String
+    Default: web
+  MobileStageName:
+    Type: String
+    Default: mobile
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 128
+Resources:
+  WebApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: Itsmung-web
+      StageName:
+        Ref: WebStageName
+    Metadata:
+      SamResourceId: WebApi
+  MobileApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: Itsmung-mobile
+      StageName:
+        Ref: MobileStageName
+    Metadata:
+      SamResourceId: MobileApi
+  WebServerBootingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://itsmung/bc313452e989413897755a5c6350a7a0
+      Handler: webServer.handler
+      Runtime: nodejs16.x
+      Layers:
+      - arn:aws:lambda:ap-northeast-2:711614834867:layer:express_module:6
+      Events:
+        RootApiEvent:
+          Type: Api
+          Properties:
+            Path: /
+            Method: Any
+            RestApiId:
+              Ref: WebApi
+        OtherApiEvent:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: Any
+            RestApiId:
+              Ref: WebApi
+        UserIntroPage:
+          Type: Api
+          Properties:
+            Path: /user_intro
+            Method: Get
+            RestApiId:
+              Ref: WebApi
+        UserFaqPage:
+          Type: Api
+          Properties:
+            Path: /user_faq
+            Method: Get
+            RestApiId:
+              Ref: WebApi
+        UserAsPage:
+          Type: Api
+          Properties:
+            Path: /user_as
+            Method: Get
+            RestApiId:
+              Ref: WebApi
+        UserAsWritePage:
+          Type: Api
+          Properties:
+            Path: /user_as_write
+            Method: Get
+            RestApiId:
+              Ref: WebApi
+        UserAsWritePostPage:
+          Type: Api
+          Properties:
+            Path: /user_as_write
+            Method: Post
+            RestApiId:
+              Ref: WebApi
+        AdminMainPage:
+          Type: Api
+          Properties:
+            Path: /admin_main
+            Method: Get
+            RestApiId:
+              Ref: WebApi
+        AdminMemberPage:
+          Type: Api
+          Properties:
+            Path: /admin_member
+            Method: Get
+            RestApiId:
+              Ref: WebApi
+        AdminMemberDeletePage:
+          Type: Api
+          Properties:
+            Path: /adim_member/delete
+            Method: Post
+            RestApiId:
+              Ref: WebApi
+        AdminDoctorPage:
+          Type: Api
+          Properties:
+            Path: /admin_doctor
+            Method: Get
+            RestApiId:
+              Ref: WebApi
+        AdminDoctorJoinPage:
+          Type: Api
+          Properties:
+            Path: /admin_doctor/join
+            Method: Post
+            RestApiId:
+              Ref: WebApi
+        AdminDoctorDeletePage:
+          Type: Api
+          Properties:
+            Path: /admin_doctor/delete
+            Method: Post
+            RestApiId:
+              Ref: WebApi
+        AdminAsPage:
+          Type: Api
+          Properties:
+            Path: /admin_as
+            Method: Get
+            RestApiId:
+              Ref: WebApi
+      Policies:
+      - AmazonDynamoDBFullAccess
+    Metadata:
+      SamResourceId: WebServerBootingFunction
+  MobileServerBootingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://itsmung/bc313452e989413897755a5c6350a7a0
+      Handler: mobileServer.handler
+      Runtime: nodejs16.x
+      Layers:
+      - arn:aws:lambda:ap-northeast-2:711614834867:layer:express_module:6
+      Events:
+        MobileLoginEvent:
+          Type: Api
+          Properties:
+            Path: /user/login
+            Method: Post
+            RestApiId:
+              Ref: MobileApi
+        MobileJoinEvent:
+          Type: Api
+          Properties:
+            Path: /user/join
+            Method: Post
+            RestApiId:
+              Ref: MobileApi
+        MobileUserInfoEvent:
+          Type: Api
+          Properties:
+            Path: /user/info
+            Method: Post
+            RestApiId:
+              Ref: MobileApi
+        MobileUserUpdateEvent:
+          Type: Api
+          Properties:
+            Path: /user/update
+            Method: Post
+            RestApiId:
+              Ref: MobileApi
+        MobileDogInfoEvent:
+          Type: Api
+          Properties:
+            Path: /dog/info
+            Method: Post
+            RestApiId:
+              Ref: MobileApi
+        MobileDogJoinEvent:
+          Type: Api
+          Properties:
+            Path: /dog/join
+            Method: Post
+            RestApiId:
+              Ref: MobileApi
+        MobileDogUpdateEvent:
+          Type: Api
+          Properties:
+            Path: /dog/update
+            Method: Post
+            RestApiId:
+              Ref: MobileApi
+        MobileUserMatchEvent:
+          Type: Api
+          Properties:
+            Path: /match/userId
+            Method: Post
+            RestApiId:
+              Ref: MobileApi
+        MobileTestEvent:
+          Type: Api
+          Properties:
+            Path: /test
+            Method: Get
+            RestApiId:
+              Ref: MobileApi
+        IoTDogLogCreateEvent:
+          Type: Api
+          Properties:
+            Path: /dog_log/create
+            Method: Post
+            RestApiId:
+              Ref: MobileApi
+        IoTAlarmCreateEvent:
+          Type: Api
+          Properties:
+            Path: /alarm/create
+            Method: Post
+            RestApiId:
+              Ref: MobileApi
+      Policies:
+      - AmazonDynamoDBFullAccess
+    Metadata:
+      SamResourceId: MobileServerBootingFunction

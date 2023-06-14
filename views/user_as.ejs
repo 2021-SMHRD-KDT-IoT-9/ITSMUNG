@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <%- include('includes/head') %>
+
+  <title>스마트한 반려견 화장실 잇츠멍(ITSMUNG)💦 - AS</title>
+  <link rel="stylesheet" href="<%=publicPath%>/css/User_as.css" />
+</head>
+
+<body>
+  <div>
+
+    <div class="main-size">
+
+      <%- include('includes/userheader') %>
+
+
+      <!-- a/s 문의 -->
+      <table>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>E-MAIL</th>
+            <th>작성일</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% const itemsPerPage = 5; %>
+          <% const totalPages = Math.ceil(items.length / itemsPerPage); %>
+          <% const currentPage = page ? parseInt(page) : 1; %>
+          <% const startNumber = items.length - (currentPage - 1) * itemsPerPage; %>
+          <% const endIndex = Math.max(0, startNumber - itemsPerPage); %>
+          <% const pageItems = items.slice(endIndex, startNumber).reverse(); %>
+          <% pageItems.forEach((item, index) => { %>
+          <tr>
+            <td><%= startNumber - index %></td>
+            <td><%= item.title %></td>
+            <td><%= item.email %></td>
+            <td><%= item.regDate %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+
+
+      <!-- 줄번호 -->
+      <div class="pagination">
+        <% if (currentPage > 1) { %>
+        <a href="/user_as?page=<%= currentPage - 1 %>">< 이전</a>
+        <% } %>
+        <% for (let page = 1; page <= totalPages; page++) { %>
+        <a href="/user_as?page=<%= page %>" <%= page === currentPage ? 'class="active"' : '' %>><%= page %></a>
+        <% } %>
+        <% if (currentPage < totalPages) { %>
+        <a href="/user_as?page=<%= currentPage + 1 %>">다음 ></a>
+        <% } %>
+      </div>
+      <!-- 글쓰기 버튼 -->
+      <a href="user_as_write"><button class="btn">글 쓰 기</button></a>
+
+      <%- include('includes/footer') %>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

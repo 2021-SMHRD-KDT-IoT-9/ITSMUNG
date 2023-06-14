@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <%- include('includes/head') %>
+  
+  <title>스마트한 반려견 화장실 잇츠멍(ITSMUNG)💦 - AS</title>
+  <link rel="stylesheet" href="<%=publicPath%>/css/User_as_write.css" />
+</head>
+
+<body>
+  <div>
+
+    <div class="main-size">
+
+      <%- include('includes/userheader') %>
+
+        <!-- 문의 남기기 
+        form 형태로 묶고, post요청으로 RESTful 처리하여 람다함수로 처리-->
+        <form action="/user_as_write" method="post">
+
+          <p class="title">제 목</p>
+          <input type="text" class="title-input" name="title" placeholder="제목을 입력해주세요.">
+
+          <p class="e-mail">이 메 일</p>
+          <input type="text" class="e-mail-input" name="email" placeholder="이메일을 입력해주세요.">
+
+          <p class="content">내 용</p>
+          <textarea class="content-input" name="content" placeholder="내용을 입력해주세요.
+      
+      
+        * 문의에 대한 답변은 남겨주신 이메일로 전달해드리겠습니다."></textarea>
+          <button type="submit" class="btn">문의 등록하기</button>
+        </form>
+
+        <%- include('includes/footer') %>
+
+    </div>
+  </div>
+</body>
+</html>

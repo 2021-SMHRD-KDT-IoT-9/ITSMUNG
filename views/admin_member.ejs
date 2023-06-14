@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <%- include('includes/head') %>
+
+  <title>스마트한 반려견 화장실 잇츠멍(ITSMUNG)💦 - AdminPage</title>
+  <link rel="stylesheet" href="<%=publicPath%>/css/Admin_member.css" />
+</head>
+
+<body>
+  <div>
+    <div class="main-size">
+
+      <%- include('includes/adminheader') %>
+
+      <!-- 회원 명단 -->
+      <table>
+        <thead>
+          <tr>
+            <th>이 름</th>
+            <th>아 이 디</th>
+            <th>닉 네 임</th>
+            <th>전 화 번 호</th>
+            <th>기 기 번 호</th>
+            <th>가 입 일</th>
+            <th>구 독 여 부</th>
+            <th>회 원 삭 제</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach((user)=> {%>
+          <tr>
+            <td><%=user.userName%></td>
+            <td><%=user.userId%></td>
+            <td><%=user.nickname%></td>
+            <td><%=user.userTel%></td>
+            <td><%=user.deviceId%></td>
+            <td><%=user.regDate%></td>
+            <td><%=user.subscription%></td>
+            <td>
+              <form action="/admin_member/delete" method="post">
+                <input type="hidden" name="user" value="<%=JSON.stringify(user)%>">
+                <button type="submit" class="btn">삭 제</button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <%- include('includes/footer') %>
+    </div>
+  </div>
+</body>

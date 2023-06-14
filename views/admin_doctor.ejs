@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <%- include('includes/head') %>
+
+  <title>스마트한 반려견 화장실 잇츠멍(ITSMUNG)💦 - AdminPage</title>
+  <link rel="stylesheet" href="<%=publicPath%>/css/Admin_doctor.css" />
+</head>
+
+<body>
+  <div>
+    <div class="main-size">
+
+      <%- include('includes/adminheader') %>
+
+      <!-- 전문가 승인 여부 명단 -->
+      <table>
+        <thead>
+          <tr>
+            <th>이 름</th>
+            <th>아 이 디</th>
+            <th>면 허 번 호</th>
+            <th>전 화 번 호</th>
+            <th>가 입 일</th>
+            <th>승 인 여 부</th>
+            <th>전 문 가 삭 제</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% items.forEach((item) =>{ %>
+          <tr>
+            <td><%=item.expertName%></td>
+            <td><%=item.expertId%></td>
+            <td><%=item.expertLicense%></td>
+            <td><%=item.expertTel%></td>
+            <td><%=item.regDate%></td>
+            <% if (item.regDate == null) {%>
+            <td>
+              <form action="/admin_doctor/join" method="POST">
+                <input type="hidden" name="expert" value="<%= JSON.stringify(item) %>">
+                <button type="submit" class="ok-wait-btn">승인대기</button>
+              </form>
+            </td>
+            <% } else { %>
+            <td>
+              <button class="ok-btn">승인완료</button>
+            </td>
+            <% } %>
+            <td>
+              <form action="/admin_doctor/delete" method="POST">
+                <input type="hidden" name="expert" value="<%= JSON.stringify(item) %>">
+                <button type="submit" class="del-btn">삭제</button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <!--footer  -->
+      <%- include('includes/footer') %>
+    </div>
+  </div>
+</body>
+
+</html>
