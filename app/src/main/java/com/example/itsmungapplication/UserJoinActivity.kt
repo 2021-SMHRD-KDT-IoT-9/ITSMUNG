@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.itsmungapplication.api.ApiManager
 import com.example.itsmungapplication.api.JoinRequest
@@ -22,7 +23,6 @@ class UserJoinActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_join)
 
-
         et_user_join_email = findViewById(R.id.et_user_join_email)
         et_user_join_pw = findViewById(R.id.et_user_join_pw)
         et_user_join_name = findViewById(R.id.et_user_join_name)
@@ -35,13 +35,16 @@ class UserJoinActivity : AppCompatActivity() {
             et_user_join_email.setText(intent.getStringExtra("kakaoUserId"))
         }
 
-        btn_user_join_sign.setOnClickListener {
-
+        btn_user_join_sign.setOnClickListener{
             var userId = et_user_join_email.text.toString()
             var userPw = et_user_join_pw.text.toString()
             var userName = et_user_join_name.text.toString()
             var nickname = et_user_join_nick.text.toString()
             var userTel = et_user_join_tel.text.toString()
+            // regDate
+            // kakaoEmail
+            // kakaoRegDate
+            // processDogId
 
             val user = UserVO()
             user.userId = userId
@@ -58,11 +61,6 @@ class UserJoinActivity : AppCompatActivity() {
                 if(response != null)
                 {
                     val intent = Intent(this@UserJoinActivity, UserLoginActivity::class.java)
-                    if(intent.getBooleanExtra("kakaoTry",false))
-                    {
-                        // TODO : kakao에 연계도 등록합니다. 시간도 등록한다.
-                        user.kakaoEmail = userId
-                    }
                     startActivity(intent)
                     Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show()
                     finish()

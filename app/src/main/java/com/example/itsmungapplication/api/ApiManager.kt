@@ -1,5 +1,6 @@
 package com.example.itsmungapplication.api
 
+import android.util.Log
 import kotlinx.coroutines.flow.callbackFlow
 import retrofit2.Call
 import retrofit2.Callback
@@ -69,6 +70,61 @@ object ApiManager {
         })
     }
 
+    // 유저 정보 불러오기 통신
+    fun userInfo(request: UserInfoRequest, callback: (UserInfoResponse?) -> Unit)
+    {
+        val call = apiService.userInfo(request)
+
+        call.enqueue(object : Callback<UserInfoResponse>
+        {
+            override fun onResponse(call: Call<UserInfoResponse>, response: Response<UserInfoResponse>)
+            {
+                if(response.isSuccessful)
+                {
+                    val response = response.body()
+                    callback(response)
+                }
+                else
+                {
+                    callback(null)
+                }
+            }
+
+            override fun onFailure(call: Call<UserInfoResponse>, t: Throwable)
+            {
+                callback(null)
+            }
+        })
+    }
+
+    // 유저 정보 변경하기 통신
+    fun userUpdate(request: UserUpdateRequest, callback: (UserUpdateResponse?) -> Unit)
+    {
+        val call = apiService.userUpdate(request)
+
+        call.enqueue(object : Callback<UserUpdateResponse>
+        {
+            override fun onResponse(call: Call<UserUpdateResponse>, response: Response<UserUpdateResponse>)
+            {
+                if(response.isSuccessful)
+                {
+                    val response = response.body()
+
+                    callback(response)
+                }
+                else
+                {
+                    callback(null)
+                }
+            }
+
+            override fun onFailure(call: Call<UserUpdateResponse>, t: Throwable)
+            {
+                callback(null)
+            }
+        })
+    }
+
     // 개 정보 불러오기 통신
     fun dogInfo(request: DogInfoRequest, callback: (DogInfoResponse?) -> Unit)
     {
@@ -98,8 +154,83 @@ object ApiManager {
 
     }
 
+    fun dogUpdate(request: DogUpdateRequest, callback: (DogUpdateResponse?) -> Unit)
+    {
+        val call = apiService.dogUpdate(request)
+
+        call.enqueue(object : Callback<DogUpdateResponse>
+        {
+            override fun onResponse(call: Call<DogUpdateResponse>, response: Response<DogUpdateResponse>)
+            {
+                if(response.isSuccessful)
+                {
+                    val response = response.body()
+                    callback(response)
+                }
+                else
+                {
+                    callback(null)
+                }
+            }
+
+            override fun onFailure(call: Call<DogUpdateResponse>, t: Throwable)
+            {
+                callback(null)
+            }
+        })
+    }
+
     fun dogJoin(request: DogJoinRequest, callback: (DogJoinResponse?) -> Unit)
     {
         val call = apiService.dogJoin(request)
+
+        call.enqueue(object : Callback<DogJoinResponse>
+        {
+            override fun onResponse(call: Call<DogJoinResponse>, response: Response<DogJoinResponse>)
+            {
+                if(response.isSuccessful)
+                {
+                    val response = response.body()
+                    callback(response)
+                }
+                else
+                {
+                    callback(null)
+                }
+            }
+
+            override fun onFailure(call: Call<DogJoinResponse>, t: Throwable)
+            {
+                callback(null)
+            }
+        })
+
+
+    }
+
+    fun match(request: MatchingRequest, callback: (MatchingResponse?) -> Unit)
+    {
+        val call = apiService.match(request)
+
+        call.enqueue(object : Callback<MatchingResponse>
+        {
+            override fun onResponse(call: Call<MatchingResponse>, response: Response<MatchingResponse>)
+            {
+                if(response.isSuccessful)
+                {
+                    val response = response.body()
+                    callback(response)
+                }
+                else
+                {
+                    callback(null)
+                }
+            }
+
+            override fun onFailure(call: Call<MatchingResponse>, t: Throwable)
+            {
+                callback(null)
+            }
+        })
     }
 }

@@ -59,13 +59,15 @@ class UserLoginActivity : AppCompatActivity() {
         // 사용자의 로그인 상태를 저장하기 위한 값입니다.
         // 모바일 내부에 파일 형태로 저장합니다.
         sharedPreferences = getSharedPreferences("itsmung", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("token", null)
         editor = sharedPreferences.edit()
 
         // 사용자 로그인 상태 확인 및 처리
-        checkLoginStatus()
+        checkLoginStatus(token)
 
         // Login
         btn_login.setOnClickListener {
+
             val userId : String = et_btn_id.text.toString()
             val userPw : String = et_btn_pw.text.toString()
 
@@ -83,21 +85,21 @@ class UserLoginActivity : AppCompatActivity() {
                 {
                     // 토큰, ID 저장
                     val token = response.token
-                    val userId = response.userId
+                    val user_Id = response.userId
 
                     editor.putString("token", token)
-                    editor.putString("userId", userId)
+                    editor.putString("userId", user_Id)
                     editor.apply()
 
                     // MainActivity로 이동
                     val intent = Intent(this@UserLoginActivity, MainActivity::class.java)
                     startActivity(intent)
-                    Toast.makeText(this, "로그인에 성공하셨습니다", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
                     finish()
                 }
                 else
                 {
-                    Toast.makeText(this@UserLoginActivity, "로그인에 실패하셨습니다", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UserLoginActivity, "로그인 실패", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -221,12 +223,20 @@ class UserLoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
     // login check 함수
-    private fun checkLoginStatus() {
+    private fun checkLoginStatus(token : String?) {
 
-        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
-        val lastLoginTime = sharedPreferences.getLong("lastLoginTime", 0)
+        if (token.equals("Itsmung Token"))
+        {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+            Toast.makeText(this, "로그인 자동성공", Toast.LENGTH_SHORT).show()
+        }
 
-        if (isLoggedIn) {
+
+
+
+        /*if (isLoggedIn)
+        {
             val currentTime = System.currentTimeMillis()
             val elapsedTime = currentTime - lastLoginTime
             val sevenDaysInMillis = 7 * 24 * 60 * 60 * 1000 // 7일을 밀리초로 변환
@@ -241,7 +251,7 @@ class UserLoginActivity : AppCompatActivity() {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
-        }
+        }*/
     }
 
     // TAG for kakaoLogin - kakaoTalk가 없는 경우

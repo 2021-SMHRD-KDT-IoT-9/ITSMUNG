@@ -22,6 +22,10 @@ import com.example.itsmungapplication.UserLoginActivity
 import com.kakao.sdk.user.UserApiClient
 import android.content.ContentValues.TAG
 import android.widget.Toast
+import com.example.itsmungapplication.api.ApiManager
+import com.example.itsmungapplication.api.DogInfoRequest
+import com.example.itsmungapplication.api.UserInfoRequest
+import com.example.itsmungapplication.vo.UserVO
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
@@ -31,6 +35,17 @@ class MypageFragment : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
     private lateinit var context: Context
+
+    private lateinit var btn_mypage_change: Button
+    private lateinit var btn_mypage_logout : Button
+    private lateinit var imgbtn_mypage_state : ImageButton
+    private lateinit var imgbtn_mypage_notice : ImageButton
+
+    private lateinit var tv_mypage_dogUserName : TextView
+    private lateinit var tv_mypage_userName : TextView
+    private lateinit var tv_mypage_userTel : TextView
+    private lateinit var tv_mypage_userAccount : TextView
+    private lateinit var btn_mypage_kakao : Button
 
     // TAG for kakaoLogin - kakaoTalk가 없는 경우
     private val mCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
@@ -87,6 +102,7 @@ class MypageFragment : Fragment() {
         super.onAttach(context)
         this.context = context
     }
+
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -95,30 +111,71 @@ class MypageFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_mypage, container, false)
 
+        btn_mypage_change = view.findViewById(R.id.btn_mypage_change)
+        btn_mypage_logout = view.findViewById(R.id.btn_mypage_logout)
+        imgbtn_mypage_state = view.findViewById(R.id.imgbtn_mypage_state)
+        imgbtn_mypage_notice = view.findViewById((R.id.imgbtn_mypage_notice))
 
-        val btn_mypage_change: Button = view.findViewById(R.id.btn_mypage_change)
-        val btn_mypage_logout : Button = view.findViewById(R.id.btn_mypage_logout)
-        val imgbtn_mypage_state : ImageButton = view.findViewById(R.id.imgbtn_mypage_state)
-        val imgbtn_mypage_notice : ImageButton = view.findViewById((R.id.imgbtn_mypage_notice))
         // 반려견 이름
-        val tv_mypage_dogUserName : TextView = view.findViewById(R.id.tv_mypage_dogusername)
-        val tv_mypage_userName : TextView = view.findViewById(R.id.tv_mypage_username)
-        val tv_mypage_userTel : TextView = view.findViewById(R.id.tv_mypage_usertel)
-        val tv_mypage_userAccount : TextView = view.findViewById(R.id.tv_mypage_useraccount)
-        val btn_mypage_kakao : Button = view.findViewById(R.id.btn_mypage_kakao)
+        tv_mypage_dogUserName = view.findViewById(R.id.tv_mypage_dogusername)
+        tv_mypage_userName = view.findViewById(R.id.tv_mypage_username)
+        tv_mypage_userTel = view.findViewById(R.id.tv_mypage_usertel)
+        tv_mypage_userAccount = view.findViewById(R.id.tv_mypage_useraccount)
+        btn_mypage_kakao = view.findViewById(R.id.btn_mypage_kakao)
 
-        sharedPreferences = context.getSharedPreferences("my_app", Context.MODE_PRIVATE)
+        sharedPreferences = context.getSharedPreferences("itsmung", Context.MODE_PRIVATE)
         editor = sharedPreferences.edit()
-        // 사용자 로그인 상태 확인 및 처리
 
+        val userId = sharedPreferences.getString("userId", null)
+
+        var dogName : String? = ""
+        var userName : String? = ""
+        var nickname : String? = ""
+        var userTel : String? = ""
+        var regDate : String? = ""
+        var kakaoEmail : String? = ""
+        var kakaoRegDate : String? = ""
+        var processDogId : String? = ""
+
+
+
+        val userVO = UserVO()
+        userVO.userId = userId
+
+        val userInfoRequest = UserInfoRequest(userVO)
+        val dogInfoRequest = DogInfoRequest(userVO)
+        // 애견 정보 불러오기
+        ApiManager.dogInfo(dogInfoRequest)
+        {
+            response->
+            if(response != null)
+            {
+                val dog = response.dog
+                dogName = dog.dogName
+
+                tv_mypage_dogUserName.setText(dogName + " 보호자님")
+            }
+        }
+        // 유저 정보 불러오기
+        ApiManager.userInfo(userInfoRequest)
+        {
+            response->
+            if(response != null)
+            {
+                val user = response.user
+                Log.e("user check", "user : ${user}")
+                userName = user.userName
+                userTel = user.userTel
+                nickname = user.nickname
+
+                tv_mypage_userName.setText(userName + " 님 \uD83C\uDF80")
+                tv_mypage_userTel.setText(userTel)
+            }
+        }
         
-        // TODO : 사용자의 정보를 가져옵니다.(DB에서)
-        var dogName : String = "소다"
-        tv_mypage_dogUserName.setText(dogName + "보호자님")
-        var name : String = "이영재"
-        tv_mypage_userName.setText(name + " 님 \uD83C\uDF80")
-        var tel : String = "010-1234-5678"
-        tv_mypage_userTel.setText(tel)
+
+
+
         // 카카오 어떻게 아이디를 보여줄 것인가? 정말 연계된 아이디를 보여줄 것인가?
         // DB 카카오 로그인 연계가 되어있는 경우
         val kakaoLoginCheck : Boolean = true
@@ -142,8 +199,8 @@ class MypageFragment : Fragment() {
         // Logout 을 위한 기능
         btn_mypage_logout.setOnClickListener {
             // Logout 을 위한 기능
-            editor.putBoolean("isLoggedIn", false)
-            editor.remove("lastLoginTime")
+            editor.remove("userId")
+            editor.remove("token")
             editor.apply()
             // 로그아웃
             // kakao SDK 삭제
@@ -172,6 +229,7 @@ class MypageFragment : Fragment() {
             val intent = Intent(activity,NoticeActivity::class.java)
             startActivity(intent)
         }
+
         btn_mypage_kakao.setOnClickListener {
             if (UserApiClient.instance.isKakaoTalkLoginAvailable(requireContext())) {
                 // 카카오톡 로그인

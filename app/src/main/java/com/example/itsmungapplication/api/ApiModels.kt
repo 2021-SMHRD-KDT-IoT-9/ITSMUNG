@@ -13,6 +13,15 @@ data class LoginResponse(
     val userId : String,
 )
 
+// User Info
+data class UserInfoRequest(
+    val user : UserVO
+)
+
+data class UserInfoResponse(
+    val user : UserVO
+)
+
 // User Join
 data class JoinRequest(
     val user: UserVO
@@ -22,6 +31,14 @@ data class JoinResponse(
     val message : String
 )
 
+// User Update
+data class UserUpdateRequest(
+    val user: UserVO
+)
+
+data class UserUpdateResponse(
+    val message: String
+)
 // Dog Info
 data class DogInfoRequest(
     val user : UserVO
@@ -33,18 +50,28 @@ data class DogInfoResponse(
 
 // Dog Join
 data class DogJoinRequest(
-    val dog : DogVO
+    val dog : DogVO,
+    val userId : String?
 )
 
 data class DogJoinResponse(
-    val message : String
+    val message : String?
 )
 
-// Matching
+// Dog Update
+data class DogUpdateRequest(
+    val dog : DogVO,
+    val userId : String?
+)
+
+data class DogUpdateResponse(
+    val message : String?
+)
+// User Match
 data class MatchingRequest(
-    val userId : String
+    val userId : String?
 )
 
 data class MatchingResponse(
- val match : String
+ val match : Boolean
 )
